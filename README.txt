@@ -4,7 +4,7 @@ My research has recently focused on the simulation of acoustic cavitation induce
 
 Research Field:
    - Multi-scale and multi-physics materials modeling
-   - Dislocation-based crystal plasticity
+   - Crystal plasticity
    - Molecular dynamics
    - Finite element analysis
 
