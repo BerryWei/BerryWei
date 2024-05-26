@@ -31,6 +31,13 @@
 			}, 100);
 		});
 
+		// Check if the page was loaded before
+		if (!sessionStorage.getItem('hasVisited')) {
+			sessionStorage.setItem('hasVisited', 'true');
+		} else {
+			location.reload(true); // Force refresh
+		}
+
 	// Fix: Flexbox min-height bug on IE.
 		if (browser.name == 'ie') {
 
