@@ -1,12 +1,1 @@
-I'm a graduate student in the Computer-Aided Engineering (CAE) division, Department of Civil Engineering at National Taiwan University. 
-My research interest mainly focuses on computational techniques to bridge the relationship between mechanical properties and material microstructure. Also,  I am interested in developing AI-based surrogate models and physics-informed neural networks to accelerate multi-scale modeling for designing materials. 
-My research has recently focused on the simulation of acoustic cavitation induced by ultrasonic activation during endodontic therapy. 
-
-Research Field:
-   - Multi-scale and multi-physics materials modeling
-   - Crystal plasticity
-   - Molecular dynamics
-   - Finite element analysis
-
-Certification:
-- Professional Engineer(PE) of Civil Engineering
+I am a Ph.D. student in the Department of Civil Engineering at National Taiwan University, specializing in the application of Artificial Intelligence (AI) to materials science and engineering. My current research focuses on developing deep material networks for homogenization. Broadly, my work aims to bridge the gap between the microstructural characteristics of materials and their macroscopic mechanical properties through the design of innovative computational models.
