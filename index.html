@@ -4,13 +4,33 @@
 -->
 <html>
 	<head>
-		<title>Ting Ju (Berry) Wei</title>
+		<title>Ting-Ju (Berry) Wei</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Ting-Ju (Berry) Wei — Postdoctoral Researcher in AI for Engineering Applications at National Taiwan University. AI-driven multiscale modeling, deep material networks, and physics-informed surrogate models for materials." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<meta property="og:title" content="Ting Ju (Berry) Wei" >
-		<meta property="og:description" content="Ting Ju (Berry) Wei Website" >
+		<meta property="og:title" content="Ting-Ju (Berry) Wei" >
+		<meta property="og:description" content="Postdoctoral Researcher in AI for Engineering Applications, National Taiwan University — deep material networks and AI-driven multiscale materials modeling." >
+		<meta property="og:type" content="website" >
+		<meta property="og:url" content="https://berrywei.github.io/BerryWei/" >
+		<meta property="og:image" content="https://berrywei.github.io/BerryWei/images/IMG_8550.jpg" >
+		<!-- Center the text-only sections (Publications, Awards) so they match the rest of the page -->
+		<style>
+			#publications, #awards { text-align: center; }
+			#publications h2.major, #awards h2.major { margin-left: auto; margin-right: auto; }
+			#publications ul.alt, #awards ul.alt { margin-left: auto; margin-right: auto; }
+
+			/* Nav: the template's centered "middle" divider assumes equal-width items.
+			   With 6 uneven-width labels it lands off the item boundary, so disable the
+			   decorative line and keep a normal border between every item instead.
+			   Scoped to the horizontal nav (>=481px); below that the nav stacks vertically
+			   with top borders, which the template already handles correctly. */
+			@media screen and (min-width: 481px) {
+				#header nav.use-middle:after { display: none; }
+				#header nav.use-middle ul li.is-middle { border-left: solid 1px #ffffff; }
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -24,17 +44,19 @@
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>Ting-Ju(Berry) Wei</h1>
-								<p>I'm a PhD student in the AI for Engineering Applications division, Department of Civil Engineering at National Taiwan University.</p>
+								<h1>Ting-Ju (Berry) Wei</h1>
+								<p>Postdoctoral Researcher in the AI for Engineering Applications division,<br />
+								Department of Civil Engineering, National Taiwan University.</p>
 							</div>
 						</div>
 						<nav>
 							<ul>
 								<li><a href="#intro">Intro</a></li>
-								<li><a href="#work">Work</a></li>
+								<li><a href="#research">Research</a></li>
+								<li><a href="#publications">Publications</a></li>
+								<li><a href="#awards">Awards</a></li>
 								<li><a href="#activity">Activity</a></li>
 								<li><a href="#contact">Contact</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
 					</header>
@@ -48,108 +70,196 @@
 
 							<!-- Profile image: add size to reduce CLS; lazy-loading for performance -->
 							<span class="image main" style="text-align:center;">
-								<img 
-								src="images/IMG_8550.jpg" 
-								alt="Portrait of Ting-Ju (Berry) Wei" 
-								loading="lazy" 
-								width="720" height="900" 
+								<img
+								src="images/IMG_8550.jpg"
+								alt="Portrait of Ting-Ju (Berry) Wei"
+								loading="lazy"
+								width="720" height="900"
 								style="max-width: 320px; width: 66%; height: auto; margin: 0 auto; display: block; border-radius: 12px;" />
 							</span>
 
 							<!-- First pitch paragraph: who you are + affiliation -->
 							<p>
-								I am a Ph.D. student in the <em>AI for Engineering Applications</em> division,
-								Department of Civil Engineering, National Taiwan University.
-								My research develops computational methods linking microstructure and mechanical response,
-								focusing on <strong>AI-based surrogate modeling</strong> and
-								<strong>physics-informed neural networks</strong> for multiscale materials design.
+								I am a Postdoctoral Researcher in the <em>AI for Engineering Applications</em> division,
+								Department of Civil Engineering, National Taiwan University, where I completed my Ph.D. in 2026.
+								My research develops <strong>AI-driven multiscale modeling</strong> and physics-based simulation
+								that link microstructure, material behavior, and macroscopic performance across scales.
 							</p>
 
-
+							<p>
+								I build <strong>physics-informed surrogate models</strong> &mdash; deep material networks and
+								microstructure foundation models &mdash; that predict polycrystalline plasticity and texture evolution
+								at <strong>sub-1% error</strong>, and electromechanical coupling at roughly <strong>2% error</strong>, with
+								<strong>1000&times;&ndash;10,000&times; speedups</strong> over full-field simulation, toward
+								Integrated Computational Materials Engineering (ICME) and industrial digital twins.
+							</p>
 
 							<!-- Quick actions: buttons for Scholar / CV / Email / LinkedIn -->
 							<div class="actions" style="display:flex; flex-wrap:wrap; gap:8px; margin: 0 0 1rem 0;">
-								<!-- Use your theme's button classes if available (e.g., .button .primary) -->
-								<a class="button" 
-								href="https://scholar.google.com/citations?user=xG39dbQAAAAJ&hl=zh-TW" 
+								<a class="button"
+								href="https://scholar.google.com/citations?user=xG39dbQAAAAJ&hl=zh-TW"
 								target="_blank" rel="noopener" aria-label="Open Google Scholar profile">
 								Google Scholar
 								</a>
-								<!-- TODO: Replace with your hosted CV path -->
-								<a class="button" 
-								href="docs/Berry_Wei_CV.pdf" 
+								<a class="button"
+								href="docs/Berry_Wei_CV.pdf"
 								target="_blank" rel="noopener" aria-label="Download CV PDF">
 								Download CV
 								</a>
 								<a class="button" href="mailto:berrya90239@gmail.com" aria-label="Send an email to Berry">
 								Email
 								</a>
-								<a class="button" 
-								href="https://www.linkedin.com/in/ting-ju-wei-6985ba187/" 
+								<a class="button"
+								href="https://www.linkedin.com/in/ting-ju-wei-6985ba187/"
 								target="_blank" rel="noopener" aria-label="Open LinkedIn profile">
 								LinkedIn
 								</a>
-								<!-- Optional: add ORCID if you have one -->
-								<!-- <a class="button" href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener" aria-label="Open ORCID profile">ORCID</a> -->
 							</div>
 
 							<!-- Research focus bullets: nouns for scanability -->
 							<ul>
-							<li>AI-Driven Surrogate Models & Multiscale Modeling</li>
-							<li>Molecular Dynamics (LAMMPS) & Dissipative Particle Dynamics</li>
-							<li>Numerical Methods & Scientific Computing (Python / C++ / Fortran)</li>
+							<li>Deep material networks &amp; physics-informed surrogate modeling</li>
+							<li>Crystal plasticity, multiscale homogenization &amp; texture evolution</li>
+							<li>Foundation models &amp; transfer learning for material microstructures</li>
+							<li>Multiphysics coupling (mechanical, thermal, electromechanical)</li>
+							<li>Molecular dynamics of high-entropy alloys (LAMMPS); scientific computing in Python / C++ / Fortran</li>
 							<li>Licensed Professional Engineer (Civil Engineering)</li>
 							<li>
-								<strong>Global Winner – Best Use of Science</strong> (1st out of 5,300+ teams), 
-								NASA International Space Apps Challenge 2022 
-								(<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/carrington-event/teams/whats-new/project" 
+								<strong>Global Winner &ndash; Best Use of Science</strong> (1st out of 5,300+ teams),
+								NASA International Space Apps Challenge 2022
+								(<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/carrington-event/teams/whats-new/project"
 								target="_blank" rel="noopener">project link</a>)
 							</li>
 							</ul>
 							</article>
 
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Work</h2>
+						<!-- Research -->
+							<article id="research">
+								<h2 class="major">Research</h2>
+
+								<!-- ODMN -->
+								<section>
+									<h3><a href="https://www.sciencedirect.com/science/article/pii/S004578252500249X" target="_blank" rel="noopener">Orientation-aware interaction-based deep material network in polycrystalline materials modeling</a></h3>
+									<span class="image main">
+										<img src="images/works/ODMN.jpg"
+											alt="ODMN framework illustration"
+											loading="lazy"
+											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
+									</span>
+									<p>Multiscale simulations connect microstructural features to the macroscopic behavior of polycrystalline materials, but their high computational demands limit practicality. Deep material networks (DMNs) are efficient surrogate models, yet they fall short of capturing texture evolution. We propose the orientation-aware interaction-based deep material network (ODMN), which combines an orientation-aware mechanism that learns crystallographic textures with an interaction mechanism grounded in the Hill&ndash;Mandel principle that captures stress-equilibrium directions among representative volume element (RVE) subregions. Notably, ODMN requires only linear elastic data for training yet generalizes to complex nonlinear, anisotropic responses, accurately predicting both mechanical response and texture evolution under complex plastic deformation. <em>Published in Computer Methods in Applied Mechanics and Engineering (CMAME), 2025.</em></p>
+								</section>
+
+								<!-- PDMN -->
+								<section>
+									<h3><a href="https://arxiv.org/abs/2606.22566" target="_blank" rel="noopener">Deep material network for homogenization of piezoelectric composites (PDMN)</a></h3>
+									<span class="image main">
+										<img src="images/works/PDMN.jpg"
+											alt="Piezoelectric Deep Material Network (PDMN): offline training and online prediction"
+											loading="lazy"
+											width="1500" height="1051"
+											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
+									</span>
+									<p>We extend deep material networks to multiphysics homogenization with the Piezoelectric Deep Material Network (PDMN), a surrogate for the nonlinear electro-mechanical response of piezoelectric composites. Each building block encodes the coupled electroelastic behavior of a phase, and interface field fluctuations are resolved by a Newton&ndash;Raphson solver that enforces Hill&ndash;Mandel energetic consistency. Trained only on homogenized linear electroelastic stiffness, PDMN predicts the coupled mechanical&ndash;electrical response &mdash; including viscous stress relaxation &mdash; of PVDF&ndash;LiNbO<sub>3</sub> composites at below 2% error with roughly a 10,000&times; speedup over full-field simulation. <em>Preprint (arXiv:2606.22566), 2026.</em></p>
+								</section>
+
+								<!-- Foundation model for polycrystals -->
+								<section>
+									<h3><a href="https://arxiv.org/abs/2512.06770" target="_blank" rel="noopener">Self-supervised microstructure pretraining for unseen polycrystalline textures</a></h3>
+									<span class="image main">
+										<img src="images/works/PolyFM.jpg"
+											alt="Polycrystal foundation model: pretrained encoder maps microstructures to ODMN parameters for multiscale prediction"
+											loading="lazy"
+											width="1500" height="1261"
+											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
+									</span>
+									<p>A self-supervised foundation model for polycrystalline microstructures. A 3D Vision Transformer is pretrained by masked reconstruction of voxelized RVEs to learn transferable, physically meaningful microstructure representations. A lightweight linear head then maps these representations directly to ODMN parameters, so a fully parameterized surrogate can be inferred for previously unseen textures &mdash; enabling efficient nonlinear multiscale prediction without retraining a separate network for each microstructure. <em>Preprint (arXiv:2512.06770), under review.</em></p>
+								</section>
+
+								<!-- Texture-generalizable DMN -->
+								<section>
+									<h3><a href="https://arxiv.org/abs/2512.06779" target="_blank" rel="noopener">A parametric multiscale surrogate framework based on texture-generalizable deep material networks</a></h3>
+									<span class="image main">
+										<img src="images/works/TGDMN.jpg"
+											alt="Texture-generalizable DMN combining TACS sampling and a graph neural network to build ODMNs for unseen RVEs"
+											loading="lazy"
+											width="1500" height="1000"
+											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
+									</span>
+									<p>A parametric multiscale surrogate that generalizes deep material networks across polycrystalline textures. Texture-Adaptive Clustering and Sampling (TACS) samples the crystallographic-texture parameters of an ODMN, while a Graph Neural Network infers the morphology parameters tied to micromechanical equilibrium. By combining texture information with a graph representation of the microstructure, the framework constructs complete ODMNs for unseen RVEs &mdash; enabling concurrent two-scale simulation and texture prediction without retraining the ODMN itself. <em>Preprint (arXiv:2512.06779), under review.</em></p>
+								</section>
+
+								<!-- Foundation Model for composites -->
+								<section>
+									<h3><a href="https://www.sciencedirect.com/science/article/pii/S0264127525008172" target="_blank" rel="noopener">Foundation model for composite microstructures: Reconstruction, stiffness, and nonlinear behavior prediction</a></h3>
+									<span class="image main">
+										<img src="images/works/MMAE.jpg"
+											alt="Material Masked Autoencoder (MMAE) illustration"
+											loading="lazy"
+											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
+									</span>
+									<p>We present the Material Masked Autoencoder (MMAE), a self-supervised Vision Transformer pretrained on a large corpus of short-fiber composite images via masked image reconstruction. The pretrained MMAE learns latent representations that capture essential microstructural features and are broadly transferable across tasks. We demonstrate two key applications: (i) predicting homogenized stiffness components through fine-tuning on limited data, and (ii) inferring physically interpretable parameters by coupling MMAE with an interaction-based material network (IMN), thereby enabling extrapolation of nonlinear stress&ndash;strain responses. <em>Published in Materials &amp; Design, 2025.</em></p>
+								</section>
+
 								<!-- Deformation mechanisms in CoCrFeMnNi high entropy alloys -->
 								<section>
-									<h3><a href="https://www.sciencedirect.com/science/article/abs/pii/S0254058421006957">Deformation mechanisms in CoCrFeMnNi high entropy alloys</a></h3>
-									<span class="image main"><img src="images/works/work1.jpg" alt="" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
-									<p>We used molecular dynamics simulations to investigate the relationship between mechanical properties and deformation mechanisms in CoCrFeMnNi alloys having different compositions. According to deformation twinning activity, the deformation mechanisms in the different CoCrFeMnNi compositions under tensile loading can be classified into three major categories: easy-shear (ES), inter-locks (IL) and bulk hexagonal closed packed (hcp) transformation (BH). We found that the compositions with ES were more likely to rupture early because of the short and fragmented twins. The compositions following the IL pattern promoted the movement of interlocking stacking faults in the twin boundaries that could prolong tensile deformation. Moreover, BH could further increase ductility because the hcp transformation could absorb and dissipate the stacking faults. </p>
+									<h3><a href="https://www.sciencedirect.com/science/article/abs/pii/S0254058421006957" target="_blank" rel="noopener">Deformation mechanisms in CoCrFeMnNi high-entropy alloys</a></h3>
+									<span class="image main"><img src="images/works/work1.jpg" alt="Molecular dynamics of CoCrFeMnNi high-entropy alloys" loading="lazy" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
+									<p>We used molecular dynamics simulations to investigate the relationship between mechanical properties and deformation mechanisms in CoCrFeMnNi alloys of different compositions. According to deformation-twinning activity, the mechanisms under tensile loading fall into three categories: easy-shear (ES), inter-locks (IL), and bulk hcp transformation (BH). Compositions with ES tended to rupture early due to short, fragmented twins; the IL pattern promoted movement of interlocking stacking faults along twin boundaries, prolonging deformation; and BH further increased ductility, as the hcp transformation absorbed and dissipated stacking faults. <em>Published in Materials Chemistry and Physics, 2021.</em></p>
 								</section>
 
 								<!-- Planar Defect Algorithm -->
 								<section>
-									<h3> Develop a defect identification algorithm for FCC crystal structure</h3>
-									<span class="image main"><img src="images/works/work2.png" alt="" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
-									<p><p>In this study, we utilized our developed defect identification algorithms to study the CoCrFeMnNi HEA single-crystal deformation behavior in molecular dynamic simulation. According to defect evolution, we divide the deformation mechanism into 2 stages. The deformation mechanism is dislocation slip in the stage Ι, while the dislocation slip and twinning contribute to work hardening in stage ΙΙ. Furthermore, this defect identification algorithms can discern the most common defects in face-centered cubic crystal. By means of our developed defect identification algorithms, MD simulation is able to bridge the relationship between defect evolution and material properties.</p>
+									<h3>Defect identification algorithm for FCC crystal structures</h3>
+									<span class="image main"><img src="images/works/work2.png" alt="Defect identification in FCC crystal structures" loading="lazy" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
+									<p>We developed defect identification algorithms to study CoCrFeMnNi high-entropy-alloy single-crystal deformation in molecular dynamics simulation. According to defect evolution, the deformation divides into two stages: dislocation slip in stage&nbsp;I, and dislocation slip together with twinning contributing to work hardening in stage&nbsp;II. The algorithms discern the most common defects in face-centered cubic crystals, allowing MD simulation to bridge the relationship between defect evolution and material properties.</p>
 								</section>
 
-								<!-- ODMN -->
-								<section>
-									<h3><a href="https://www.sciencedirect.com/science/article/pii/S004578252500249X">Orientation-aware interaction-based deep material network in polycrystalline materials modeling</a></h3>
-									<span class="image main">
-										<img src="images/works/ODMN.jpg" 
-											alt="ODMN illustration"
-											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
-									</span>
-									<p>Multiscale simulations are indispensable for connecting microstructural features to the macroscopic behavior of polycrystalline materials, but their high computational demands limit their practicality. Deep material networks (DMNs) have been proposed as efficient surrogate models, yet they fall short of capturing texture evolution. To address this limitation, we propose the orientation-aware interaction-based deep material network (ODMN), which incorporates an orientation-aware mechanism and an interaction mechanism grounded in the Hill–Mandel principle. The orientation-aware mechanism learns the crystallographic textures, while the interaction mechanism captures stress-equilibrium directions among representative volume element (RVE) subregions, offering insight into internal microstructural mechanics. Notably, ODMN requires only linear elastic data for training yet generalizes effectively to complex nonlinear and anisotropic responses. Our results show that ODMN accurately predicts both mechanical responses and texture evolution under complex plastic deformation, thus expanding the applicability of DMNs to polycrystalline materials. By balancing computational efficiency with predictive fidelity, ODMN provides a robust framework for multiscale simulations of polycrystalline materials. </p>
-								</section>
+							</article>
 
-								<!-- Foundation Model -->
-								<section>
-									<h3><a href="https://www.sciencedirect.com/science/article/pii/S0264127525008172">Foundation model for composite microstructures: Reconstruction, stiffness, and nonlinear behavior prediction</a></h3>
-									<span class="image main">
-										<img src="images/works/MMAE.jpg" 
-											alt="MMAE illustration"
-											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
-									</span>
-									<p>We present the Material Masked Autoencoder (MMAE), a self-supervised Vision Transformer pretrained on a large corpus of short-fiber composite images via masked image reconstruction. The pretrained MMAE learns latent representations that capture essential microstructural features and are broadly transferable across tasks. We demonstrate two key applications: (i) predicting homogenized stiffness components through fine-tuning on limited data, and (ii) inferring physically interpretable parameters by coupling MMAE with an interaction-based material network (IMN), thereby enabling extrapolation of nonlinear stress–strain responses. These results highlight the promise of microstructure foundation models and lay the groundwork for future extensions to more complex systems, such as 3D composites and experimental datasets. </p>
-								</section>
-								
+						<!-- Publications -->
+							<article id="publications">
+								<h2 class="major">Publications</h2>
+								<p>Selected publications; author name in <strong>bold</strong>. Full list on
+								<a href="https://scholar.google.com/citations?user=xG39dbQAAAAJ&hl=zh-TW" target="_blank" rel="noopener">Google Scholar</a>.</p>
 
+								<h3>Journal Articles</h3>
+								<ul class="alt">
+									<li><strong>Wei, T.-J.</strong>, Wan, W.-N., &amp; Chen, C.-S. (2026). Deep Material Network: Overview, Applications, and Current Directions. <em>Multiscale Science and Engineering</em>, 8, 1&ndash;19.</li>
+									<li><strong>Wei, T.-J.</strong>, Su, T.-H., &amp; Chen, C.-S. (2025). <a href="https://www.sciencedirect.com/science/article/pii/S004578252500249X" target="_blank" rel="noopener">Orientation-aware interaction-based deep material network in polycrystalline materials modeling</a>. <em>Computer Methods in Applied Mechanics and Engineering</em>, 441, 117977.</li>
+									<li><strong>Wei, T.-J.</strong>, &amp; Chen, C.-S. (2025). <a href="https://www.sciencedirect.com/science/article/pii/S0264127525008172" target="_blank" rel="noopener">Foundation model for composite microstructures: Reconstruction, stiffness, and nonlinear behavior prediction</a>. <em>Materials &amp; Design</em>, 257, 114397.</li>
+									<li>Wan, W.-N., <strong>Wei, T.-J.</strong>, Su, T.-H., &amp; Chen, C.-S. (2024). Decoding material networks: Exploring performance of deep material network and interaction-based material networks. <em>Journal of Mechanics</em>, 40, 796&ndash;807.</li>
+									<li>Chen, K.-T., <strong>Wei, T.-J.</strong>, Li, G.-C., et al. (2021). <a href="https://www.sciencedirect.com/science/article/abs/pii/S0254058421006957" target="_blank" rel="noopener">Mechanical properties and deformation mechanisms in CoCrFeMnNi high-entropy alloys: A molecular dynamics study</a>. <em>Materials Chemistry and Physics</em>, 271, 124912.</li>
+								</ul>
 
-								
+								<h3>Preprints &amp; Under Review</h3>
+								<ul class="alt">
+									<li><strong>Wei, T.-J.</strong>, Lu, Y.-M., &amp; Chen, C.-S. (2026). <a href="https://arxiv.org/abs/2606.22566" target="_blank" rel="noopener">Deep material network for homogenization of piezoelectric composites</a>. <em>arXiv:2606.22566</em>.</li>
+									<li><strong>Wei, T.-J.</strong>, &amp; Chen, C.-S. (2025). <a href="https://arxiv.org/abs/2512.06770" target="_blank" rel="noopener">Efficient nonlinear multiscale prediction for unseen polycrystalline textures via self-supervised microstructure pretraining</a>. <em>arXiv:2512.06770</em> (under review).</li>
+									<li><strong>Wei, T.-J.</strong>, Su, T.-H., &amp; Chen, C.-S. (2025). <a href="https://arxiv.org/abs/2512.06779" target="_blank" rel="noopener">A parametric multiscale surrogate framework based on texture-generalizable deep material networks for polycrystal modeling</a>. <em>arXiv:2512.06779</em> (under review).</li>
+								</ul>
+
+								<h3>Selected Conference Presentations</h3>
+								<ul class="alt">
+									<li><strong>Wei, T.-J.</strong>, &amp; Chen, C.-S. (2026). Deep Material Networks for Homogenization of Heterogeneous Piezoelectric Materials. <em>17th World Congress on Computational Mechanics (WCCM) &amp; ECCOMAS</em>, Munich, Germany.</li>
+									<li><strong>Wei, T.-J.</strong>, &amp; Chen, C.-S. (2025). Generalizable Deep Material Networks for Polycrystalline and Composite Materials. <em>9th Asian Pacific Congress on Computational Mechanics (APCOM) &amp; ACCM</em>, Brisbane, Australia.</li>
+									<li><strong>Wei, T.-J.</strong>, Wan, W.-N., &amp; Chen, C.-S. (2025). Orientation-Aware Interaction-Based Deep Material Network for Polycrystalline Materials with Diverse Microstructures. <em>XVIII International Conference on Computational Plasticity (COMPLAS)</em>, Barcelona, Spain.</li>
+									<li><strong>Wei, T.-J.</strong>, &amp; Chen, C.-S. (2024). Advancing Multiscale Modeling in Polycrystalline Materials: A Novel Deep Material Network Approach. <em>16th World Congress on Computational Mechanics (WCCM) &amp; PANACM</em>, Vancouver, Canada.</li>
+								</ul>
+							</article>
+
+						<!-- Awards -->
+							<article id="awards">
+								<h2 class="major">Awards</h2>
+								<ul class="alt">
+									<li><strong>Dean's Award for Graduate Students</strong> &mdash; College of Engineering, National Taiwan University (2026)</li>
+									<li><strong>Honorable Mention</strong> &mdash; Walsin Lihwa &times; NTU Engineering Research Competition, for the AI-Driven Virtual Materials Development and Intelligent Manufacturing Decision Platform (2026)</li>
+									<li><strong>Saxon Student Mobility Scholarship</strong> &mdash; Saxon Ministry for Science, Culture and Tourism, for a research stay at TU Dresden (2025)</li>
+									<li><strong>Ministry of Education Doctoral Scholarship</strong> (AY 113) &mdash; National Taiwan University (2024)</li>
+									<li><strong>Xin-Miao Technology Doctoral Scholarship</strong> &mdash; awarded to 5 doctoral students university-wide per year (2023)</li>
+									<li><strong>2nd Place, Taipei City</strong> &mdash; NASA Space Apps Challenge (2023)</li>
+									<li><strong>Global Winner, Best Use of Science</strong> &mdash; NASA Space Apps Challenge, 1st of 5,300+ teams worldwide (<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/carrington-event/teams/whats-new/project" target="_blank" rel="noopener">project page</a>, 2022)</li>
+									<li><strong>Professional Engineer (PE), Civil Engineering</strong> &mdash; Public Construction Commission, Credential ID 017987 (2021)</li>
+								</ul>
 							</article>
 
 						<!-- Activity -->
@@ -157,301 +267,56 @@
 								<h2 class="major">Activity</h2>
 
 								<section>
-									<h3>2022 <a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/carrington-event/teams/whats-new/project">NASA SPACE APPS 2022 challenge </a></h3>
-									<span class="image main"><img src="images/activity/NASA_AIT.JPG" alt="" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
-									<p>In this project, we propose a machine learning pipeline to predict the probability of the solar storm event. We divide the challenging problem into three subproblems, including (1) map DSCOVR’s magnetic data to Wind’s magnetic data, (2) transform magnetic data to solar proton data, and (3) predict the storm happening probability based on the proton data.</p>
+									<h3>2022 <a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/carrington-event/teams/whats-new/project" target="_blank" rel="noopener">NASA Space Apps 2022 Challenge</a></h3>
+									<span class="image main"><img src="images/activity/NASA_AIT.JPG" alt="NASA Space Apps Challenge team" loading="lazy" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
+									<p>In this project, we propose a machine learning pipeline to predict the probability of a solar-storm event. We divide the challenge into three subproblems: (1) map DSCOVR's magnetic data to Wind's magnetic data, (2) transform magnetic data to solar-proton data, and (3) predict the storm-occurrence probability based on the proton data.</p>
 								</section>
 
 								<section>
 									<h3>Freediving</h3>
-									<span class="image main"><img src="images/activity/diving.jpg" alt="" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
-									<p>I am a freediving enthusiast. I find the underwater world fascinating and enjoy exploring the beauty of marine life. Freediving offers a sense of tranquility and connection with nature that is unmatched.
+									<span class="image main"><img src="images/activity/diving.jpg" alt="Freediving" loading="lazy" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
+									<p>I am a freediving enthusiast. I find the underwater world fascinating and enjoy exploring the beauty of marine life. Freediving offers a sense of tranquility and connection with nature that is unmatched.</p>
 								</section>
 
 								<section>
-									<h3>Photography & Travel</h3>
-									<span class="image main"><img src="images/activity/travel.JPG" alt="" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
-									<p>I enjoy capturing moments during my travels and exploring new places through photography. Photography is a way for me to document and share my adventures, and it helps me see the world from different perspectives. Traveling allows me to experience diverse cultures, meet new people, and gain a deeper understanding of the world around me. Whether it's the bustling streets of a city or the serene landscapes of nature, I love capturing the essence of each place I visit.</p>
+									<h3>Photography &amp; Travel</h3>
+									<span class="image main"><img src="images/activity/travel.JPG" alt="Photography and travel" loading="lazy" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
+									<p>I enjoy capturing moments during my travels and exploring new places through photography. Photography is a way to document and share my adventures, and it helps me see the world from different perspectives. Traveling lets me experience diverse cultures, meet new people, and gain a deeper understanding of the world &mdash; whether it's the bustling streets of a city or the serene landscapes of nature.</p>
 								</section>
 
 							</article>
-				
-							
 
 						<!-- Contact -->
-<article id="contact">
-  <h2 class="major">Contact</h2>
-  <form method="POST" action="https://formspree.io/f/xpwleqvz">
-    <div class="fields">
-      <div class="field half">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" required />
-      </div>
-      <div class="field half">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required />
-      </div>
-      <div class="field">
-        <label for="message">Message</label>
-        <textarea name="message" id="message" rows="4" required></textarea>
-      </div>
-    </div>
-    <ul class="actions">
-      <li><input type="submit" value="Send Message" class="primary" /></li>
-      <li><input type="reset" value="Reset" /></li>
-    </ul>
-  </form>
-
-  <ul class="icons">
-    <li><a href="https://twitter.com/berrya90239" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-    <li><a href="https://www.facebook.com/berry.wei" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-    <li><a href="https://www.instagram.com/weiberry/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-    <li><a href="https://github.com/BerryWei" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-  </ul>
-</article>
-
-
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
-
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
-
-								<section>
-									<h3 class="major">Lists</h3>
-
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Table</h3>
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
+						<article id="contact">
+							<h2 class="major">Contact</h2>
+							<form method="POST" action="https://formspree.io/f/xpwleqvz">
+								<div class="fields">
+									<div class="field half">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" required />
 									</div>
-
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
+									<div class="field half">
+										<label for="email">Email</label>
+										<input type="email" name="email" id="email" required />
 									</div>
-								</section>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="4" required></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" class="primary" /></li>
+									<li><input type="reset" value="Reset" /></li>
+								</ul>
+							</form>
 
-								<section>
-									<h3 class="major">Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Form</h3>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="berrya90239@gmail.com" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
-
-							</article>
+							<ul class="icons">
+								<li><a href="https://twitter.com/berrya90239" class="icon brands fa-twitter" target="_blank" rel="noopener"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/berry.wei" class="icon brands fa-facebook-f" target="_blank" rel="noopener"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/weiberry/" class="icon brands fa-instagram" target="_blank" rel="noopener"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/BerryWei" class="icon brands fa-github" target="_blank" rel="noopener"><span class="label">GitHub</span></a></li>
+							</ul>
+						</article>
 
 					</div>
 
