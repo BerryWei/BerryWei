@@ -74,7 +74,7 @@
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__text">
-          <p class="eyebrow">Computational Mechanics · Scientific Machine Learning</p>
+          <p class="eyebrow">Computational Materials Science · Multiscale Modeling · Scientific ML</p>
           <h1 class="hero__name">Ting-Ju <span class="hero__nick">(Berry)</span> Wei <span class="hero__zh" lang="zh-Hant">魏廷儒</span></h1>
           <p class="hero__role">R&amp;D Technical Consultant, <a href="https://specialmeltedproducts.com/" target="_blank" rel="noopener">Special Melted Products</a> · Sheffield, UK<br>
             Ph.D., National Taiwan University (2026)</p>
@@ -102,8 +102,8 @@
       <div class="wrap">
         <dl class="stats">
           <div><dt>Speed-up vs. full-field DNS</dt><dd>10<sup>2</sup>–10<sup>4</sup>×</dd></div>
-          <div><dt>Journal papers &amp; manuscripts</dt><dd>10</dd></div>
-          <div><dt>Conference abstracts</dt><dd>10</dd></div>
+          <div><dt>Journal papers &amp; manuscripts</dt><dd>11</dd></div>
+          <div><dt>Conference abstracts</dt><dd>12</dd></div>
           <div><dt>Doctoral dissertation awards</dt><dd>2</dd></div>
         </dl>
       </div>
@@ -306,16 +306,41 @@
           </div>
         </article>
 
+        <!-- Project 7: root canal CFD -->
+        <article class="project project--flip project--md" id="r-endo">
+          <div class="project__body">
+            <p class="project__venue"><span class="badge">M.Sc. thesis 2023</span> <span class="badge badge--soft">Manuscript in preparation</span></p>
+            <h3>Where do bubbles form in root-canal irrigation?</h3>
+            <p>Ultrasonically activated irrigation cleans a root canal through acoustic streaming and cavitation bubbles, yet no model predicted where the bubbles appear. I built a 3D two-way fluid&ndash;structure-interaction CFD model of the oscillating endodontic file. Instead of simulating every bubble, I condensed the pressure field into one dimensionless pressure-gradient number, &Gamma;: the cycle-maximum pressure gradient, turned into a bubble probability and integrated over each cross-section of the canal.</p>
+            <p>Checked against B-mode ultrasound imaging (with the NTU School of Dentistry), &Gamma; reproduces the measured bubble ranking across files and power settings, peaks at the tip and antinodes, and is exactly zero where no bubbles form.</p>
+            <ul class="metrics">
+              <li><b>3D FSI</b><span>~30 kHz oscillating file</span></li>
+              <li><b>&Gamma;</b><span>dimensionless bubble number</span></li>
+              <li><b>4 / 4</b><span>cases ranked as in experiment</span></li>
+            </ul>
+            <p class="links"><a href="https://doi.org/10.6342/NTU202303343" target="_blank" rel="noopener">M.Sc. thesis ↗</a></p>
+          </div>
+          <div class="project__media">
+            <figure>
+              <div class="figcanvas" data-fig="endo">
+                <canvas role="img" aria-label="Schematic animation: an ultrasonic file oscillates in a root canal, producing acoustic-streaming vortices and pressure-gradient hot spots where bubbles form; the pressure field is condensed into a dimensionless number Gamma along the canal, which is compared with B-mode ultrasound bubble intensity for four file and power cases."></canvas>
+                <button class="fig-pause" type="button" aria-label="Pause animation" aria-pressed="false"><span aria-hidden="true"></span></button>
+              </div>
+              <div class="md-grid endo-clips">
+                <video class="autoplay" muted loop playsinline preload="none" poster="media/endo-bmode.webp" width="520" height="360" aria-label="B-mode ultrasound video: bright speckles are bubbles around three oscillating files in water">
+                  <source src="media/endo-bmode.mp4" type="video/mp4">
+                </video>
+                <video class="autoplay" muted loop playsinline preload="none" poster="media/endo-cfd.webp" width="560" height="438" aria-label="CFD: velocity magnitude and streamlines around the oscillating file for four cases, showing counter-rotating acoustic-streaming vortices">
+                  <source src="media/endo-cfd.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption><span class="figno">Fig. 7</span> Top (schematic): CFD of the oscillating file &rarr; dimensionless &Gamma; along the canal &rarr; compared with measured bubble intensity for four file/power cases. Bottom: B-mode ultrasound of bubbles (experiment) and simulated acoustic-streaming vortices (CFD).</figcaption>
+            </figure>
+          </div>
+        </article>
+
         <h3 class="subhead">Other projects</h3>
         <div class="cards">
-          <article class="card">
-            <img src="media/endo-bmode.webp" width="756" height="607" alt="B-mode ultrasound images of cavitation bubbles around three endodontic files during irrigation." loading="lazy" decoding="async">
-            <div class="card__body">
-              <p class="card__meta">M.Sc. thesis · ACMT 2023</p>
-              <h4>Cavitation bubbles in root-canal irrigation</h4>
-              <p>CFD of an oscillating endodontic file, validated with ultrasound imaging, to predict where cavitation bubbles form for different files and irrigants.</p>
-            </div>
-          </article>
           <article class="card">
             <img src="media/nasa.webp" width="1000" height="750" alt="The team at the NASA Space Apps Challenge 2022." loading="lazy" decoding="async">
             <div class="card__body">
@@ -338,8 +363,8 @@
         </header>
         <div>
           <div class="tabs" role="tablist" aria-label="Publication type">
-            <button role="tab" aria-selected="true" aria-controls="pub-journal" id="tab-journal">Articles &amp; manuscripts <span>10</span></button>
-            <button role="tab" aria-selected="false" aria-controls="pub-conf" id="tab-conf" tabindex="-1">Conference abstracts <span>10</span></button>
+            <button role="tab" aria-selected="true" aria-controls="pub-journal" id="tab-journal">Articles &amp; manuscripts <span>11</span></button>
+            <button role="tab" aria-selected="false" aria-controls="pub-conf" id="tab-conf" tabindex="-1">Conference abstracts <span>12</span></button>
           </div>
 
           <div role="tabpanel" id="pub-journal" aria-labelledby="tab-journal" tabindex="0">
@@ -358,6 +383,14 @@
                 <p class="pub__title">From compact orientation distributions to texture evolution: GSH-initialized orientation-aware deep material networks</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
                 <p class="pub__venue"><i>Manuscript</i> · 2026 <span class="pill">Under review</span></p>
+              </div>
+            </li>
+            <li class="pub">
+              <button class="pub__fig" type="button" data-full="media/ms-endo.webp" aria-label="Enlarge: Root-canal CFD to pressure-gradient number pipeline"><img class="pub__thumb" width="560" height="350" src="media/ms-endo-sm.webp" alt="Root-canal CFD to pressure-gradient number pipeline" loading="lazy" decoding="async"></button>
+              <div>
+                <p class="pub__title">Numerical simulation of an irrigation flow in the root canal system: modeling the probability for cavitation bubble intensity</p>
+                <p class="pub__authors"><b>T.-J. Wei</b>, Y.-Y. Chen, A.-B. Wang, C.-C. Lin, W.-W. Liu, C.-S. Chen</p>
+                <p class="pub__venue"><i>Manuscript</i> <span class="pill">In preparation</span></p>
               </div>
             </li>
             <li class="pub">
@@ -452,9 +485,19 @@
               <p class="pub__venue"><i>ACMT 2026 &amp; BEM17</i> · Taipei, Taiwan · Oct 2026</p>
             </div></li>
             <li class="pub"><div>
+              <p class="pub__title">Deep material networks as a unified AI-native homogenization framework for multiscale and multiphysics modeling</p>
+              <p class="pub__authors">C.-S. Chen, <b>T.-J. Wei</b></p>
+              <p class="pub__venue"><i>AESCAPE 2026</i> · Dallas, TX, USA · Sep 2026</p>
+            </div></li>
+            <li class="pub"><div>
               <p class="pub__title">Deep material networks for nonlinear electromechanical homogenization of piezoelectric composites</p>
               <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
               <p class="pub__venue"><i>AESCAPE 2026</i> · Dallas, TX, USA · Sep 2026</p>
+            </div></li>
+            <li class="pub"><div>
+              <p class="pub__title">A unified homogenization framework for heterogeneous materials based on deep material networks</p>
+              <p class="pub__authors">C.-S. Chen, <b>T.-J. Wei</b></p>
+              <p class="pub__venue"><i>17th World Congress on Computational Mechanics (WCCM&ndash;ECCOMAS 2026)</i> · Munich, Germany · Jul 2026</p>
             </div></li>
             <li class="pub"><div>
               <p class="pub__title">Deep material networks for homogenization of heterogeneous piezoelectric materials</p>
@@ -483,7 +526,7 @@
             </div></li>
             <li class="pub"><div>
               <p class="pub__title">Simulating an irrigation flow in root canal: predicting the likelihood of cavitation bubble formation</p>
-              <p class="pub__authors"><b>T.-J. Wei</b>, Y.-Y. Chen, C.-C. Lin, W.-W. Liu, A.-B. Wang, J.-S. Chen</p>
+              <p class="pub__authors"><b>T.-J. Wei</b>, Y.-Y. Chen, C.-C. Lin, W.-W. Liu, A.-B. Wang, C.-S. Chen</p>
               <p class="pub__venue"><i>ACMT 2023 Annual Meeting</i> · Taipei, Taiwan · Oct 2023</p>
             </div></li>
           </ol>
@@ -524,7 +567,7 @@
           <li class="honor honor--key"><span class="honor__yr">2026</span><div><p class="honor__t">Doctoral Dissertation Award, 19th TOPCO Thesis Award</p><p class="honor__d">Taiwan Management Institute, for <em>Deep Material Networks for Microstructure Learning in Multiscale Simulations</em>.</p></div></li>
           <li class="honor"><span class="honor__yr">2026</span><div><p class="honor__t">Dean’s Award for Graduate Students (top 10%)</p><p class="honor__d">College of Engineering, National Taiwan University.</p></div></li>
           <li class="honor"><span class="honor__yr">2026</span><div><p class="honor__t">Honorable Mention, Walsin Lihwa × NTU Engineering Research Competition</p><p class="honor__d">For an AI-driven virtual materials development and intelligent manufacturing decision platform.</p></div></li>
-          <li class="honor"><span class="honor__yr">2025</span><div><p class="honor__t">Saxon Student Mobility Scholarship</p><p class="honor__d">Saxon State Ministry for Science, Culture and Tourism, for a research stay at TU Dresden.</p></div></li>
+          <li class="honor"><span class="honor__yr">2025</span><div><p class="honor__t">Saxon Student Mobility Scholarship</p><p class="honor__d">Saxon Ministry for Science, Culture and Tourism, for a research stay at TU Dresden.</p></div></li>
           <li class="honor"><span class="honor__yr">2024</span><div><p class="honor__t">Ministry of Education Doctoral Scholarship (AY 113)</p><p class="honor__d">National Taiwan University.</p></div></li>
           <li class="honor"><span class="honor__yr">2023</span><div><p class="honor__t">Xin-Miao (鑫淼) Technology Doctoral Scholarship</p><p class="honor__d">Xin-Miao Education Foundation; awarded to five doctoral students university-wide each year.</p></div></li>
           <li class="honor"><span class="honor__yr">2023</span><div><p class="honor__t">2nd Place, Taipei, NASA Space Apps Challenge</p></div></li>
@@ -546,8 +589,10 @@
           <div>
             <h3 class="cv__h">Experience</h3>
             <ol class="timeline">
-              <li><span class="timeline__when">Nov 2026 – present</span><p class="timeline__what">R&amp;D Technical Consultant</p><p class="timeline__where">Special Melted Products Ltd · Sheffield, UK</p><p class="timeline__desc">Dynamic recrystallization, multiscale modeling and digital twins for superalloy processing.</p></li>
-              <li><span class="timeline__when">Jul 2026 – Oct 2026</span><p class="timeline__what">Postdoctoral Researcher</p><p class="timeline__where">National Taiwan University · Taipei</p><p class="timeline__desc">DMN and crystal-plasticity UMATs for Abaqus; deep drawing and industrial case studies linking texture evolution to component response.</p></li>
+              <li><span class="timeline__when">Nov 2026 – present</span><p class="timeline__what">R&amp;D Technical Consultant</p><p class="timeline__where">Special Melted Products Ltd · Sheffield, UK</p><p class="timeline__desc">Computational materials modeling for nickel-based superalloy processing: crystal-plasticity and multiscale models of microstructure evolution in thermomechanical processing, with AI surrogates toward process optimization and digital twins.</p></li>
+              <li><span class="timeline__when">Jul 2026 – Oct 2026</span><p class="timeline__what">Postdoctoral Researcher</p><p class="timeline__where">National Taiwan University · Taipei</p><p class="timeline__desc">Built the AI-Driven Virtual Materials Development Platform, coupling ODMN with DAMASK crystal plasticity; two-scale FE simulations of sheet-metal deep drawing validated against experiments; MPI parallelization.</p></li>
+              <li><span class="timeline__when">2021 – 2026</span><p class="timeline__what">Contractor&rsquo;s Professional Engineer</p><p class="timeline__where">Rong-Hua Construction &amp; Feng-Ya Construction</p><p class="timeline__desc">Licensed technical certification for construction projects (PE, Civil Engineering).</p></li>
+              <li><span class="timeline__when">2017 – 2021</span><p class="timeline__what">Associate Technical Specialist</p><p class="timeline__where">Experimental Forest, National Taiwan University</p><p class="timeline__desc">Engineering procurement, contracting, subcontractor coordination and construction documentation.</p></li>
             </ol>
           </div>
           <div>
@@ -564,7 +609,7 @@
               <div><dt>Mechanics</dt><dd>Finite element analysis · crystal plasticity · computational homogenization · molecular dynamics · CFD</dd></div>
               <div><dt>Software</dt><dd>Abaqus (UMAT/UEL) · DAMASK · DREAM.3D · LAMMPS · OVITO · ANSYS</dd></div>
               <div><dt>Machine learning</dt><dd>PyTorch · PyTorch Geometric · graph neural networks · vision transformers · self-supervised learning</dd></div>
-              <div><dt>Computing</dt><dd>Python · C++ · Fortran · MPI / HPC</dd></div>
+              <div><dt>Computing</dt><dd>Python · C/C++ · Fortran · MATLAB · MPI / HPC</dd></div>
             </dl>
           </div>
         </div>
@@ -619,5 +664,6 @@
   <script src="js/figs/gnn.js" defer></script>
   <script src="js/figs/mae.js" defer></script>
   <script src="js/figs/pdmn.js" defer></script>
+  <script src="js/figs/endo.js" defer></script>
 </body>
 </html>
