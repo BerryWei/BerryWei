@@ -144,6 +144,13 @@
         ctx.fillRect(B.cx - bw / 2 + bw * (g % 4) / 4, B.cy - bh / 2 + bh * (g >> 2) / 2, bw / 4 + 0.5, bh / 2 + 0.5);
       }
       ctx.strokeStyle = c.muted; ctx.lineWidth = 1; ctx.strokeRect(B.cx - bw / 2, B.cy - bh / 2, bw, bh);
+      var ld = clamp(t / 0.45) * (t < 0.45 ? 1 : 0) + (t >= 0.45 && t < 0.6 ? 1 - (t - 0.45) / 0.15 : 0);
+      var al = W * (0.018 + 0.03 * Math.sin(Math.PI * 0.5 * ld));
+      if (ld > 0.02) {
+        ctx.globalAlpha = st.vis * Math.min(1, ld * 4);
+        api.arrow(B.cx - bw / 2 - 3, B.cy, B.cx - bw / 2 - 3 - al, B.cy, { color: c.muted });
+        api.arrow(B.cx + bw / 2 + 3, B.cy, B.cx + bw / 2 + 3 + al, B.cy, { color: c.muted });
+      }
       // F11 readout: 'F' with a smaller lowered '11'
       var ly = B.cy + B.s * 0.36 + fs * 1.9, fx = B.cx - fs * 2.6;
       ctx.globalAlpha = st.vis;

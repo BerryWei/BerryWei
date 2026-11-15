@@ -588,30 +588,13 @@
         var th = nn.theta * Math.PI / 180, rr = nn.r * 0.72;
         c.strokeStyle = nn.L === 0 ? colors.accent : colors.text; c.lineWidth = 1.2;
         c.beginPath(); c.moveTo(nn.x - Math.cos(th) * rr, nn.y - Math.sin(th) * rr); c.lineTo(nn.x + Math.cos(th) * rr, nn.y + Math.sin(th) * rr); c.stroke();
-        // unknown a_p (one interaction vector per interface): Newton steps update it;
-        // it starts from the previous increment's converged value
-        var sgn = nn.k % 2 ? 1 : -1, fac = 0.75 + 0.5 * ((n2 * 0.618034) % 1);
-        var mOld = (st.Fp - 1) / (FMAX - 1) * fac, mNew = (st.Fn - 1) / (FMAX - 1) * fac;
-        var m = mNew - st.err * (mNew - mOld);
+        // Newton step: the unknowns U = {a_p} at each interface are updated; shown
+        // only as a brief ring flash (the interaction direction itself never moves)
         var newton = st.s === 4 ? Math.sin(Math.PI * clamp01(st.u * 1.15)) : 0;
-        var phi = nn.L === 0 ? -Math.PI / 2 + 0.6 * m - 0.3 : (sgn > 0 ? 0 : Math.PI) + sgn * (-0.38 + 0.5 * m) * (nn.k % 4 < 2 ? 1 : -1);
-        var r0 = nn.r + 1.5, al2 = nn.r * (0.35 + 1.45 * m) + 3;
-        // keep each a_p inside its own half-gap on the row (so facing arrows of
-        // neighbouring nodes never read as one coupling) and clear of the canvas top
-        var cphA = Math.abs(Math.cos(phi)), sphA = Math.abs(Math.sin(phi));
-        var halfGap = (W - 2 * W * 0.07) / (1 << nn.L) / 2;
-        if (nn.L > 0 && cphA > 0.05) al2 = Math.min(al2, (halfGap * 0.62 - r0 * cphA) / cphA);
-        if (Math.sin(phi) < -0.05) al2 = Math.min(al2, (nn.y - r0 * sphA - Math.max(10, W * 0.02)) / sphA);
-        al2 = Math.max(al2, 4);
-        var ax = nn.x + Math.cos(phi) * r0, ay = nn.y + Math.sin(phi) * r0;
-        var bx = ax + Math.cos(phi) * al2, by = ay + Math.sin(phi) * al2;
-        var cph = Math.cos(phi), sph = Math.sin(phi), hl = 3.6 + 0.6 * newton;
-        c.strokeStyle = colors.accent; c.fillStyle = colors.accent;
-        c.globalAlpha = 0.7 + 0.3 * newton; c.lineWidth = 1.3 + 0.5 * newton;
-        c.beginPath(); c.moveTo(ax, ay); c.lineTo(bx - cph * hl * 0.6, by - sph * hl * 0.6); c.stroke();
-        c.beginPath(); c.moveTo(bx, by);
-        c.lineTo(bx - cph * hl - sph * hl * 0.55, by - sph * hl + cph * hl * 0.55);
-        c.lineTo(bx - cph * hl + sph * hl * 0.55, by - sph * hl - cph * hl * 0.55); c.closePath(); c.fill();
+        if (newton > 0.02) {
+          c.strokeStyle = colors.accent; c.globalAlpha = 0.85 * newton; c.lineWidth = 1.6;
+          c.beginPath(); c.arc(nn.x, nn.y, nn.r + 3 + 2 * newton, 0, 7); c.stroke();
+        }
         c.globalAlpha = 1;
       }
     }
