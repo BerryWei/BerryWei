@@ -91,11 +91,11 @@
 
         <figure class="hero__fig" aria-labelledby="fig0-cap">
           <div class="hero__canvas">
-            <canvas id="dmn-canvas" role="img" aria-label="Animated illustration: a voxelized polycrystal whose grains feed the leaves of a binary-tree deep material network; signals propagate from the leaves up to the root."></canvas>
+            <canvas id="dmn-canvas" role="img" aria-label="Animated illustration: a deep material network solving one constitutive update per load increment on a stretched voxelized polycrystal: downscale, local laws, residual and Newton steps until the residual is below tolerance, then upscale; a panel lists the steps and plots the residual per iteration."></canvas>
             <button class="hero__pause" type="button" aria-label="Pause animation" aria-pressed="false"><span aria-hidden="true"></span></button>
             <div class="hero__readout" aria-hidden="true"><span>F<sub>11</sub></span> <b id="f11">1.000</b></div>
           </div>
-          <figcaption id="fig0-cap"><span class="figno">Fig. 0</span> A deep material network: a binary tree of laminate building blocks that homogenizes a polycrystalline RVE, trained on linear elastic data and extrapolating to crystal plasticity.</figcaption>
+          <figcaption id="fig0-cap"><span class="figno">Fig. 0</span> A frozen deep material network solving online: each load increment sends the macro strain down the tree to the grains, evaluates crystal plasticity there, and takes Newton steps on the interaction directions until the residual falls below tolerance (four iterations when loading, two when unloading), then returns the homogenized stress and tangent.</figcaption>
         </figure>
       </div>
 
@@ -257,13 +257,13 @@
         </article>
 
         <!-- Project 5: Application -->
-        <article class="project" id="r-app">
+        <article class="project project--wide" id="r-app">
           <div class="project__media">
             <figure>
-              <video class="autoplay" muted loop playsinline preload="none" poster="media/cup-forming.webp" width="1000" height="562" aria-label="Abaqus simulation: a deep-drawn aluminium cup after springback, rotating, colored by maximum principal strain, showing earing at the rim">
-                <source src="media/cup-forming.mp4" type="video/mp4">
+              <video class="autoplay" muted loop playsinline preload="none" poster="media/cup-texture.webp" width="1440" height="780" aria-label="Abaqus deep-drawing simulation of a cup section colored by maximum principal strain, with {100}, {011} and {111} pole figures at probe points a to h evolving as the punch travels to 55 mm and after springback">
+                <source src="media/cup-texture.mp4" type="video/mp4">
               </video>
-              <figcaption><span class="figno">Fig. 5</span> Abaqus deep-drawing simulation of an AA6022-T4 cup: maximum principal strain after springback, with texture-induced earing at the rim.</figcaption>
+              <figcaption><span class="figno">Fig. 5</span> Texture-resolved deep drawing of an AA6022-T4 cup in Abaqus. Centre: cup section coloured by maximum principal strain. Around it: {100}, {011} and {111} pole figures at probes a–h (top and bottom surfaces) evolving with punch travel, through springback.</figcaption>
             </figure>
           </div>
           <div class="project__body">
@@ -387,7 +387,7 @@
               </div>
             </li>
             <li class="pub">
-              <button class="pub__fig" type="button" data-full="media/ill-hea.svg" aria-label="Enlarge: Illustration: stacking faults and twins in an FCC high-entropy alloy"><img class="pub__thumb" src="media/ill-hea.svg" alt="Illustration: stacking faults and twins in an FCC high-entropy alloy" loading="lazy" decoding="async"></button>
+              <button class="pub__fig" type="button" data-full="media/ill-hea.svg" aria-label="Enlarge: Illustration: five elements (Co, Cr, Fe, Mn, Ni) randomly arranged on an FCC lattice"><img class="pub__thumb" src="media/ill-hea.svg" alt="Illustration: five elements (Co, Cr, Fe, Mn, Ni) randomly arranged on an FCC lattice" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Mechanical properties and deformation mechanisms in CoCrFeMnNi high entropy alloys: a molecular dynamics study</p>
                 <p class="pub__authors">K.-T. Chen, <b>T.-J. Wei</b>, G.-C. Li, M.-Y. Chen, Y.-S. Chen, S.-W. Chang, H.-W. Yen, C.-S. Chen</p>
