@@ -95,7 +95,7 @@
             <button class="hero__pause" type="button" aria-label="Pause animation" aria-pressed="false"><span aria-hidden="true"></span></button>
             <div class="hero__readout" aria-hidden="true"><span>F<sub>11</sub></span> <b id="f11">1.000</b></div>
           </div>
-          <figcaption id="fig0-cap"><span class="figno">Fig. 0</span> A frozen deep material network solving online: each load increment sends the macro strain down the tree to the grains, evaluates crystal plasticity there, and takes Newton steps on the interaction directions until the residual falls below tolerance (four iterations when loading, two when unloading), then returns the homogenized stress and tangent.</figcaption>
+          <figcaption id="fig0-cap"><span class="figno">Fig. 0</span> A frozen deep material network solving online at finite strain: the macro deformation gradient goes down to the grains, Newton steps update the interface vectors a<sub>p</sub> (the trained interaction directions stay fixed), and the homogenized stress and tangent come back up. Each grain&rsquo;s lattice rotates with the deformation.</figcaption>
         </figure>
       </div>
 
@@ -144,7 +144,7 @@
             <p class="axis__label">Axis A</p>
             <h3>Extend the physics the network carries</h3>
             <p>Enrich the laminate building block (electromechanical coupling, crystal orientation, texture evolution) without changing the tree.</p>
-            <p class="axis__items"><a href="#r-pdmn">PDMN</a> · <a href="#r-odmn">ODMN</a></p>
+            <p class="axis__items"><a href="#r-odmn">ODMN</a> · <a href="#r-pdmn">PDMN</a></p>
           </div>
           <div class="axis">
             <p class="axis__label">Axis B</p>
@@ -258,7 +258,17 @@
 
         <!-- Project 5: Application -->
         <article class="project project--wide" id="r-app">
-          <div class="project__media">
+          <div class="project__body">
+            <p class="project__venue"><span class="badge">Postdoc 2026</span> <span class="badge badge--soft">Manuscripts in preparation</span></p>
+            <h3>From RVE to component: forming and thermomechanics</h3>
+            <p>Surrogates only matter once they run inside real structural codes. During my postdoc I implemented DMN and crystal-plasticity models as Abaqus UMATs and compacted measured textures with generalized spherical harmonics (GSH). With colleagues (Y.-T. Lu, G.-C. Li), we used them for texture-resolved simulations of thermomechanical cycling and of deep drawing of aluminium cups, a step toward digital twins of metal forming and superalloy processing.</p>
+            <ul class="metrics">
+              <li><b>Abaqus UMAT</b><span>DMN + crystal plasticity</span></li>
+              <li><b>GSH</b><span>compact texture representation</span></li>
+              <li><b>DTE 2027</b><span>co-authored abstract, Yokohama</span></li>
+            </ul>
+          </div>
+          <div class="project__media project__media--below">
             <figure>
               <video class="autoplay" muted loop playsinline preload="none" poster="media/cup-texture.webp" width="1440" height="780" aria-label="Abaqus deep-drawing simulation of a cup section colored by maximum principal strain, with {100}, {011} and {111} pole figures at probe points a to h evolving as the punch travels to 55 mm and after springback">
                 <source src="media/cup-texture.mp4" type="video/mp4">
@@ -266,28 +276,39 @@
               <figcaption><span class="figno">Fig. 5</span> Texture-resolved deep drawing of an AA6022-T4 cup in Abaqus. Centre: cup section coloured by maximum principal strain. Around it: {100}, {011} and {111} pole figures at probes a–h (top and bottom surfaces) evolving with punch travel, through springback.</figcaption>
             </figure>
           </div>
+        </article>
+
+        <!-- Project 6: MD -->
+        <article class="project project--md" id="r-md">
           <div class="project__body">
-            <p class="project__venue"><span class="badge badge--soft">Ongoing</span></p>
-            <h3>From RVE to component: forming and thermomechanics</h3>
-            <p>Surrogates only matter once they run inside real structural codes. I implement DMN and crystal-plasticity models as Abaqus UMATs, compact measured textures with generalized spherical harmonics (GSH), and run texture-resolved simulations of thermomechanical cycling and deep drawing of aluminium cups, toward digital twins of metal forming and superalloy processing.</p>
+            <p class="project__venue"><span class="badge">Mater. Chem. Phys. 2021</span> <span class="badge badge--soft">2nd author</span></p>
+            <h3>Atomistic mechanisms: molecular dynamics of high-entropy alloys</h3>
+            <p>Where it started. With LAMMPS and a quinary MEAM potential, we pulled 18 alloys of the Co–Cr–Fe–Mn–Ni family apart atom by atom to see how composition steers plasticity among slip, twinning and fcc&rarr;hcp transformation. Three deformation paths emerged (easy shear, inter-locking stacking faults, bulk hcp), and strength rose with the unstable stacking-fault energy, pointing to Cr-free and Mn-lean recipes.</p>
+            <p>Common structure-identification tools (CNA, PTM) label every planar defect simply as &ldquo;hcp&rdquo;. Our group&rsquo;s planar-defect identification (PDI) analysis, built on PTM, separates stacking faults, twin boundaries, deformation twins and hcp phase; I extended it (manuscript in preparation) to quantify slip, twinning and transformation through a tension test, turning MD movies into numbers.</p>
             <ul class="metrics">
-              <li><b>Abaqus UMAT</b><span>DMN + crystal plasticity</span></li>
-              <li><b>GSH</b><span>compact texture representation</span></li>
-              <li><b>DTE 2027</b><span>Yokohama, Mar 2027 (accepted abstract)</span></li>
+              <li><b>18</b><span>compositions simulated</span></li>
+              <li><b>3</b><span>deformation paths identified</span></li>
+              <li><b>PDI</b><span>defect identification &amp; quantification</span></li>
             </ul>
+            <p class="links"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0254058421006957" target="_blank" rel="noopener">Paper ↗</a> <a href="https://github.com/CMMAi/HEA_Mechanisms" target="_blank" rel="noopener">LAMMPS models ↗</a></p>
+          </div>
+          <div class="project__media">
+            <figure>
+              <div class="md-grid">
+                <video class="autoplay" muted loop playsinline preload="none" poster="media/md-cr30.webp" width="340" height="564" aria-label="Molecular dynamics: a CoCrFeMnNi single crystal pulled to fracture, atoms colored by planar-defect type">
+                  <source src="media/md-cr30.mp4" type="video/mp4">
+                </video>
+                <video class="autoplay" muted loop playsinline preload="none" poster="media/md-pdi-ptm.webp" width="760" height="464" aria-label="Molecular dynamics tension: the same atoms colored by PTM (top), which only distinguishes fcc and hcp, and by PDI (bottom), which separates stacking faults, twins and hcp phase">
+                  <source src="media/md-pdi-ptm.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption><span class="figno">Fig. 6</span> Left: a CoCrFeMnNi single crystal pulled to fracture, coloured by defect type. Right: the same tension test seen by PTM (top, fcc/hcp only) and by PDI (bottom), which resolves stacking faults, twin boundaries and the hcp phase.</figcaption>
+            </figure>
           </div>
         </article>
 
-        <h3 class="subhead">Earlier work</h3>
+        <h3 class="subhead">Other projects</h3>
         <div class="cards">
-          <article class="card">
-            <img src="media/hea-md.webp" width="880" height="376" alt="Molecular dynamics snapshot of a high-entropy alloy under tension, with stacking faults and twins colored by defect type." loading="lazy" decoding="async">
-            <div class="card__body">
-              <p class="card__meta">Mater. Chem. Phys. 2021 · co-author</p>
-              <h4>Deformation mechanisms in CoCrFeMnNi high-entropy alloys</h4>
-              <p>Molecular dynamics (LAMMPS) study showing how composition shifts twinning from easy shear to interlocking stacking faults to bulk HCP transformation, and how that controls ductility.</p>
-            </div>
-          </article>
           <article class="card">
             <img src="media/endo-bmode.webp" width="756" height="607" alt="B-mode ultrasound images of cavitation bubbles around three endodontic files during irrigation." loading="lazy" decoding="async">
             <div class="card__body">
@@ -325,7 +346,7 @@
           <div role="tabpanel" id="pub-journal" aria-labelledby="tab-journal" tabindex="0">
           <ol class="pubs" reversed>
             <li class="pub">
-              <button class="pub__fig" type="button" data-full="media/ga-pdmn.webp" aria-label="Enlarge: Graphical abstract: piezoelectric deep material network"><img class="pub__thumb" src="media/ga-pdmn-sm.webp" alt="Graphical abstract: piezoelectric deep material network" loading="lazy" decoding="async"></button>
+              <button class="pub__fig" type="button" data-full="media/ga-pdmn.webp" aria-label="Enlarge: Graphical abstract: piezoelectric deep material network"><img class="pub__thumb" width="560" height="350" src="media/ga-pdmn-sm.webp" alt="Graphical abstract: piezoelectric deep material network" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Deep material network for homogenization of piezoelectric composites</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, Y.-M. Lu, C.-S. Chen</p>
@@ -334,7 +355,7 @@
               </div>
             </li>
             <li class="pub">
-              <button class="pub__fig" type="button" data-full="media/ga-tacs.webp" aria-label="Enlarge: Graphical abstract: TACS–GNN–ODMN framework"><img class="pub__thumb" src="media/ga-tacs-sm.webp" alt="Graphical abstract: TACS–GNN–ODMN framework" loading="lazy" decoding="async"></button>
+              <button class="pub__fig" type="button" data-full="media/ga-tacs.webp" aria-label="Enlarge: Graphical abstract: TACS–GNN–ODMN framework"><img class="pub__thumb" width="560" height="350" src="media/ga-tacs-sm.webp" alt="Graphical abstract: TACS–GNN–ODMN framework" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">A parametric multiscale surrogate framework based on texture-generalizable Deep Material Networks for polycrystal modeling</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, T.-H. Su, C.-S. Chen</p>
@@ -343,7 +364,7 @@
               </div>
             </li>
             <li class="pub">
-              <button class="pub__fig" type="button" data-full="media/ill-review.svg" aria-label="Enlarge: Illustration: the deep material network family"><img class="pub__thumb" src="media/ill-review.svg" alt="Illustration: the deep material network family" loading="lazy" decoding="async"></button>
+              <button class="pub__fig" type="button" data-full="media/ill-review.svg" aria-label="Enlarge: Illustration: the deep material network family"><img class="pub__thumb" width="560" height="350" src="media/ill-review.svg" alt="Illustration: the deep material network family" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Deep Material Network: overview, applications, and current directions</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, W.-N. Wan, C.-S. Chen</p>
@@ -352,7 +373,7 @@
               </div>
             </li>
             <li class="pub">
-              <button class="pub__fig" type="button" data-full="media/ga-polyfm.webp" aria-label="Enlarge: Graphical abstract: foundation model for polycrystals"><img class="pub__thumb" src="media/ga-polyfm-sm.webp" alt="Graphical abstract: foundation model for polycrystals" loading="lazy" decoding="async"></button>
+              <button class="pub__fig" type="button" data-full="media/ga-polyfm.webp" aria-label="Enlarge: Graphical abstract: foundation model for polycrystals"><img class="pub__thumb" width="560" height="350" src="media/ga-polyfm-sm.webp" alt="Graphical abstract: foundation model for polycrystals" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Efficient nonlinear multiscale prediction for unseen polycrystalline textures via self-supervised microstructure pretraining</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
@@ -361,7 +382,7 @@
               </div>
             </li>
             <li class="pub">
-              <button class="pub__fig" type="button" data-full="media/ga-mmae.webp" aria-label="Enlarge: Graphical abstract: foundation model for composite microstructures"><img class="pub__thumb" src="media/ga-mmae-sm.webp" alt="Graphical abstract: foundation model for composite microstructures" loading="lazy" decoding="async"></button>
+              <button class="pub__fig" type="button" data-full="media/ga-mmae.webp" aria-label="Enlarge: Graphical abstract: foundation model for composite microstructures"><img class="pub__thumb" width="560" height="350" src="media/ga-mmae-sm.webp" alt="Graphical abstract: foundation model for composite microstructures" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Foundation model for composite microstructures: reconstruction, stiffness, and nonlinear behavior prediction</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
@@ -370,7 +391,7 @@
               </div>
             </li>
             <li class="pub">
-              <button class="pub__fig" type="button" data-full="media/ga-odmn.webp" aria-label="Enlarge: Graphical abstract: orientation-aware interaction-based DMN"><img class="pub__thumb" src="media/ga-odmn-sm.webp" alt="Graphical abstract: orientation-aware interaction-based DMN" loading="lazy" decoding="async"></button>
+              <button class="pub__fig" type="button" data-full="media/ga-odmn.webp" aria-label="Enlarge: Graphical abstract: orientation-aware interaction-based DMN"><img class="pub__thumb" width="560" height="350" src="media/ga-odmn-sm.webp" alt="Graphical abstract: orientation-aware interaction-based DMN" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Orientation-aware interaction-based deep material network in polycrystalline materials modeling</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, T.-H. Su, C.-S. Chen</p>
@@ -379,7 +400,7 @@
               </div>
             </li>
             <li class="pub">
-              <button class="pub__fig" type="button" data-full="media/ill-decoding.svg" aria-label="Enlarge: Illustration: DMN versus IMN building blocks"><img class="pub__thumb" src="media/ill-decoding.svg" alt="Illustration: DMN versus IMN building blocks" loading="lazy" decoding="async"></button>
+              <button class="pub__fig" type="button" data-full="media/ill-decoding.svg" aria-label="Enlarge: Illustration: DMN versus IMN building blocks"><img class="pub__thumb" width="560" height="350" src="media/ill-decoding.svg" alt="Illustration: DMN versus IMN building blocks" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Decoding material networks: exploring performance of deep material network and interaction-based material networks</p>
                 <p class="pub__authors">W.-N. Wan, <b>T.-J. Wei</b>, T.-H. Su, C.-S. Chen</p>
@@ -387,7 +408,7 @@
               </div>
             </li>
             <li class="pub">
-              <button class="pub__fig" type="button" data-full="media/ill-hea.svg" aria-label="Enlarge: Illustration: five elements (Co, Cr, Fe, Mn, Ni) randomly arranged on an FCC lattice"><img class="pub__thumb" src="media/ill-hea.svg" alt="Illustration: five elements (Co, Cr, Fe, Mn, Ni) randomly arranged on an FCC lattice" loading="lazy" decoding="async"></button>
+              <button class="pub__fig" type="button" data-full="media/ill-hea.svg" aria-label="Enlarge: Illustration: five elements (Co, Cr, Fe, Mn, Ni) randomly arranged on an FCC lattice"><img class="pub__thumb" width="560" height="350" src="media/ill-hea.svg" alt="Illustration: five elements (Co, Cr, Fe, Mn, Ni) randomly arranged on an FCC lattice" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Mechanical properties and deformation mechanisms in CoCrFeMnNi high entropy alloys: a molecular dynamics study</p>
                 <p class="pub__authors">K.-T. Chen, <b>T.-J. Wei</b>, G.-C. Li, M.-Y. Chen, Y.-S. Chen, S.-W. Chang, H.-W. Yen, C.-S. Chen</p>

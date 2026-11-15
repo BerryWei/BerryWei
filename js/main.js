@@ -310,11 +310,11 @@
       F: s === 0 ? Fp + (Fn - Fp) * easeInOut(u) : Fn, Fp: Fp, Fn: Fn, err: err, r: r, dots: dots };
   }
   var STEPS = [
-    ['downscale', '\u03b5_i = \u03b5\u0304 + D_iU'],
-    ['local laws', '(\u03c3_i, C_i) = f_i(\u03b5_i)'],
-    ['residual', 'r = \u03a3 w_i\u200aD_i^T\u200a\u03c3_i'],
+    ['downscale', 'F_i = F\u0304 + D_iU'],
+    ['local laws', '(P_i, A_i) = f_i(F_i; \u03b6_i)'],
+    ['residual', 'r = \u03a3 w_i\u200aD_i^T\u200aP_i'],
     ['Newton step', 'K \u0394U = \u2212r'],
-    ['upscale', '\u03c3\u0304 = \u03a3 w_i\u03c3_i']
+    ['upscale', 'P\u0304 = \u03a3 w_i\u200aP_i, A\u0304']
   ];
   var MONO = '"JetBrains Mono", ui-monospace, monospace';
   // tiny rich text: '_x' / '^x' (or '_{..}' / '^{..}') draw sub/superscripts.
@@ -573,43 +573,46 @@
       c.lineWidth = hover === nn ? 2.2 : 1.3;
       c.strokeStyle = isLeaf ? colors.surface : (nn.L === 0 ? colors.accent : colors.text);
       c.stroke();
-      if (!isLeaf) {
-        // interaction direction a_p of this laminate; Newton steps rotate it towards
-        // the converged state of the new load increment
-        // (the per-increment change is exaggerated so the correction dU is visible)
-        var sgn = nn.k % 2 ? 1 : -1, fac = 0.85 + 0.3 * ((n2 * 0.618034) % 1);
-        var thOld = nn.theta + (st.Fp - 1) * 260 * fac * sgn, thNew = nn.theta + (st.Fn - 1) * 260 * fac * sgn;
-        var thDeg = thNew - st.err * (thNew - thOld);
-        var th = thDeg * Math.PI / 180, rr = nn.r * 0.72;
-        var newton = st.s === 4 ? Math.min(1, 2.2 * Math.sin(Math.PI * st.u)) : 0;
-        if (newton > 0.01) {
-          var thPre = (thNew - st.E[st.k - 1] * (thNew - thOld)) * Math.PI / 180;
-          var Rg = nn.r + 3.5;
-          // ghost of the iterate before this step
-          c.strokeStyle = colors.muted; c.globalAlpha = 0.55 * newton; c.lineWidth = 1; c.setLineDash([2, 2]);
-          c.beginPath(); c.moveTo(nn.x - Math.cos(thPre) * Rg, nn.y - Math.sin(thPre) * Rg); c.lineTo(nn.x + Math.cos(thPre) * Rg, nn.y + Math.sin(thPre) * Rg); c.stroke();
-          c.setLineDash([]);
-          // correction dU: arcs with arrowheads from the old to the new direction
-          if (Math.abs(th - thPre) > 0.02) {
-            var Ra = nn.r + 6, dir = th > thPre ? 1 : -1;
-            c.strokeStyle = colors.accent; c.fillStyle = colors.accent; c.globalAlpha = 0.9 * newton; c.lineWidth = 1.5;
-            for (var hf = 0; hf < 2; hf++) {
-              var a0 = thPre + hf * Math.PI, a1 = th + hf * Math.PI;
-              c.beginPath(); c.arc(nn.x, nn.y, Ra, a0, a1, dir < 0); c.stroke();
-              if (Math.abs(th - thPre) > 0.12) {
-                var hx = nn.x + Math.cos(a1) * Ra, hy = nn.y + Math.sin(a1) * Ra;
-                var tx2 = -Math.sin(a1) * dir, ty2 = Math.cos(a1) * dir, nx2 = Math.cos(a1), ny2 = Math.sin(a1);
-                c.beginPath(); c.moveTo(hx + tx2 * 3.2, hy + ty2 * 3.2);
-                c.lineTo(hx - tx2 * 2 + nx2 * 2.6, hy - ty2 * 2 + ny2 * 2.6);
-                c.lineTo(hx - tx2 * 2 - nx2 * 2.6, hy - ty2 * 2 - ny2 * 2.6); c.closePath(); c.fill();
-              }
-            }
-            c.globalAlpha = 1;
-          }
-          rr = nn.r * 0.72 + (Rg - nn.r * 0.72) * newton;
-        }
-        c.strokeStyle = (nn.L === 0 || newton > 0.01) ? colors.accent : colors.text; c.lineWidth = 1.2 + 0.8 * newton;
+      if (isLeaf) {
+        // lattice orientation of this grain: at finite strain the crystal rotates
+        // with the deformation (texture evolution), reversibly along the load path here
+        var lsg = nn.k % 3 ? 1 : -1, lfac = 0.6 + 0.8 * ((n2 * 0.381966) % 1);
+        var lth = (seeds[nn.grain].hue * 180 + lsg * lfac * 45 * e / (FMAX - 1)) * Math.PI / 180, lr = nn.r * 0.62;
+        c.strokeStyle = colors.surface; c.globalAlpha = 0.9; c.lineWidth = 1.1;
+        c.beginPath(); c.moveTo(nn.x - Math.cos(lth) * lr, nn.y - Math.sin(lth) * lr); c.lineTo(nn.x + Math.cos(lth) * lr, nn.y + Math.sin(lth) * lr); c.stroke();
+        c.beginPath(); c.moveTo(nn.x + Math.sin(lth) * lr * 0.55, nn.y - Math.cos(lth) * lr * 0.55); c.lineTo(nn.x - Math.sin(lth) * lr * 0.55, nn.y + Math.cos(lth) * lr * 0.55); c.stroke();
+        c.globalAlpha = 1;
+      } else {
+        // interaction direction n_p: a trained parameter of the frozen network, so this
+        // tick never moves
+        var th = nn.theta * Math.PI / 180, rr = nn.r * 0.72;
+        c.strokeStyle = nn.L === 0 ? colors.accent : colors.text; c.lineWidth = 1.2;
         c.beginPath(); c.moveTo(nn.x - Math.cos(th) * rr, nn.y - Math.sin(th) * rr); c.lineTo(nn.x + Math.cos(th) * rr, nn.y + Math.sin(th) * rr); c.stroke();
+        // unknown a_p (one interaction vector per interface): Newton steps update it;
+        // it starts from the previous increment's converged value
+        var sgn = nn.k % 2 ? 1 : -1, fac = 0.75 + 0.5 * ((n2 * 0.618034) % 1);
+        var mOld = (st.Fp - 1) / (FMAX - 1) * fac, mNew = (st.Fn - 1) / (FMAX - 1) * fac;
+        var m = mNew - st.err * (mNew - mOld);
+        var newton = st.s === 4 ? Math.sin(Math.PI * clamp01(st.u * 1.15)) : 0;
+        var phi = nn.L === 0 ? -Math.PI / 2 + 0.6 * m - 0.3 : (sgn > 0 ? 0 : Math.PI) + sgn * (-0.38 + 0.5 * m) * (nn.k % 4 < 2 ? 1 : -1);
+        var r0 = nn.r + 1.5, al2 = nn.r * (0.35 + 1.45 * m) + 3;
+        // keep each a_p inside its own half-gap on the row (so facing arrows of
+        // neighbouring nodes never read as one coupling) and clear of the canvas top
+        var cphA = Math.abs(Math.cos(phi)), sphA = Math.abs(Math.sin(phi));
+        var halfGap = (W - 2 * W * 0.07) / (1 << nn.L) / 2;
+        if (nn.L > 0 && cphA > 0.05) al2 = Math.min(al2, (halfGap * 0.62 - r0 * cphA) / cphA);
+        if (Math.sin(phi) < -0.05) al2 = Math.min(al2, (nn.y - r0 * sphA - Math.max(10, W * 0.02)) / sphA);
+        al2 = Math.max(al2, 4);
+        var ax = nn.x + Math.cos(phi) * r0, ay = nn.y + Math.sin(phi) * r0;
+        var bx = ax + Math.cos(phi) * al2, by = ay + Math.sin(phi) * al2;
+        var cph = Math.cos(phi), sph = Math.sin(phi), hl = 3.6 + 0.6 * newton;
+        c.strokeStyle = colors.accent; c.fillStyle = colors.accent;
+        c.globalAlpha = 0.7 + 0.3 * newton; c.lineWidth = 1.3 + 0.5 * newton;
+        c.beginPath(); c.moveTo(ax, ay); c.lineTo(bx - cph * hl * 0.6, by - sph * hl * 0.6); c.stroke();
+        c.beginPath(); c.moveTo(bx, by);
+        c.lineTo(bx - cph * hl - sph * hl * 0.55, by - sph * hl + cph * hl * 0.55);
+        c.lineTo(bx - cph * hl + sph * hl * 0.55, by - sph * hl - cph * hl * 0.55); c.closePath(); c.fill();
+        c.globalAlpha = 1;
       }
     }
     drawPulses();
@@ -621,12 +624,13 @@
     var rt = nodeAt(0, 0);
     c.textAlign = 'left';
     c.fillStyle = rootGlow > 0.05 ? colors.accent : colors.muted;
-    c.fillText((W >= 420 ? 'macro ' : '') + '\u03c3\u0304, \u2102\u0304', rt.x + rt.r + 14, rt.y + 4);
-    c.textAlign = 'right';
+    c.fillText((W >= 420 ? 'macro ' : '') + 'P\u0304, A\u0304', rt.x + rt.r + 14, rt.y + 4);
     c.fillStyle = st.s === 1 ? colors.gold : colors.muted;
-    c.fillText('\u03b5\u0304' + (W >= 420 ? ' = ' + (F - 1).toFixed(2) : ''), rt.x - rt.r - 14, rt.y + 4);
+    richText(W >= 420 ? 'macro F\u0304' : 'F\u0304', rt.x - rt.r - 14, rt.y, fsL, '500', 'right');
+    c.textBaseline = 'alphabetic'; c.font = '500 ' + fsL + 'px ' + MONO;
     var labY = band - Math.max(8, W * 0.022);
     c.fillStyle = colors.muted;
+    c.textAlign = 'right';
     c.fillText('RVE \u00b7 ' + NLEAF + ' grains', W - W * 0.05, labY);
     c.textAlign = 'left';
     c.fillText('increment ' + (st.n + 1) + '/' + NINC, W * 0.05, labY);
@@ -637,7 +641,7 @@
     if (hover) {
       var label = hover.L === DEPTH
         ? 'grain ' + (hover.grain + 1) + ' \u00b7 w = ' + hover.w.toFixed(3)
-        : (hover.L === 0 ? 'root \u00b7 homogenized RVE' : 'block L' + hover.L + ' \u00b7 \u03b8 = ' + hover.theta + '\u00b0 \u00b7 w = ' + hover.w.toFixed(3));
+        : (hover.L === 0 ? 'root \u00b7 homogenized RVE' : 'interface L' + hover.L + ' \u00b7 n fixed at ' + hover.theta + '\u00b0 \u00b7 w = ' + hover.w.toFixed(3));
       c.font = '500 ' + Math.max(11, W * 0.022) + 'px ' + MONO;
       var tw = c.measureText(label).width + 14, th2 = Math.max(22, W * 0.045);
       var tx = Math.min(Math.max(hover.x - tw / 2, 6), W - tw - 6), ty = hover.y - hover.r - th2 - 8;
