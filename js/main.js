@@ -257,15 +257,18 @@
     if (readout) readout.textContent = F.toFixed(3);
     var e = F - 1;
 
-    // ---- polycrystal: heterogeneous, roughly volume-preserving stretch with necking ----
+    // ---- polycrystal under periodic boundary conditions ----
+    // x = F.X + w(X): macroscopic stretch F11 (with lateral contraction) plus a
+    // fluctuation w that is periodic in X, so opposite faces deform identically.
     var side = NX * grid.cell;
     var cxm = grid.x0 + side / 2, cym = grid.y0 + side / 2;
+    var TAU = 2 * Math.PI;
     function map(x, y) {
-      var u = x / NX - 0.5, v = y / NY - 0.5;
-      var xs = u * F + 0.05 * e * Math.sin(2 * Math.PI * v) * Math.cos(Math.PI * u);
-      var neck = 1 - 0.55 * e * Math.cos(Math.PI * u) * Math.cos(Math.PI * u);
-      var ys = v / Math.sqrt(F) * neck + 0.03 * e * Math.sin(2 * Math.PI * u);
-      return { x: cxm + xs * side, y: cym + ys * side };
+      var X = x / NX, Y = y / NY;               // reference coords in [0,1]
+      var u = X - 0.5, v = Y - 0.5;
+      var wx = e * (0.045 * Math.sin(TAU * Y) + 0.03 * Math.sin(TAU * (X + Y) + 1.3) + 0.02 * Math.sin(TAU * (2 * X - Y)));
+      var wy = e * (0.04 * Math.sin(TAU * X + 0.7) + 0.025 * Math.sin(TAU * (X - Y) + 2.1) + 0.02 * Math.sin(TAU * (X + 2 * Y)));
+      return { x: cxm + (u * F + wx) * side, y: cym + (v / Math.sqrt(F) + wy) * side };
     }
     var P = new Array((NX + 1) * (NY + 1));
     for (var pj = 0; pj <= NY; pj++) for (var pi = 0; pi <= NX; pi++) P[pj * (NX + 1) + pi] = map(pi, pj);

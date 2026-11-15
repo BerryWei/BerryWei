@@ -188,8 +188,11 @@
         <article class="project project--flip" id="r-pdmn">
           <div class="project__media">
             <figure>
-              <img src="media/pdmn-abstract.webp" width="1400" height="677" alt="Graphical abstract of the Piezoelectric Deep Material Network: the challenge of multiscale electromechanical homogenization, the PDMN solution with offline training and online prediction, and its 3 to 4 orders of magnitude speedup." loading="lazy" decoding="async">
-              <figcaption><span class="figno">Fig. 2</span> PDMN: offline training on linear electroelastic stiffness, online fully coupled Newton–Raphson prediction.</figcaption>
+              <div class="figcanvas" data-fig="pdmn">
+                <canvas role="img" aria-label="Schematic animation: a piezoelectric composite RVE with polarized inclusions under strain and electric field feeds a piezoelectric deep material network; mechanical and electrical signals travel up the tree together, and the predicted macroscopic stress and electric displacement are traced over time, including stress relaxation."></canvas>
+                <button class="fig-pause" type="button" aria-label="Pause animation" aria-pressed="false"><span aria-hidden="true"></span></button>
+              </div>
+              <figcaption><span class="figno">Fig. 2</span> Schematic. Strain and electric field enter a two-phase piezoelectric RVE; mechanical (blue) and electrical (gold) channels homogenize together through the PDMN tree, predicting coupled stress and electric displacement over time.</figcaption>
             </figure>
           </div>
           <div class="project__body">
@@ -254,7 +257,15 @@
         </article>
 
         <!-- Project 5: Application -->
-        <article class="project project--text" id="r-app">
+        <article class="project" id="r-app">
+          <div class="project__media">
+            <figure>
+              <video class="autoplay" muted loop playsinline preload="none" poster="media/cup-forming.webp" width="1000" height="562" aria-label="Abaqus simulation: a deep-drawn aluminium cup after springback, rotating, colored by maximum principal strain, showing earing at the rim">
+                <source src="media/cup-forming.mp4" type="video/mp4">
+              </video>
+              <figcaption><span class="figno">Fig. 5</span> Abaqus deep-drawing simulation of an AA6022-T4 cup: maximum principal strain after springback, with texture-induced earing at the rim.</figcaption>
+            </figure>
+          </div>
           <div class="project__body">
             <p class="project__venue"><span class="badge badge--soft">Ongoing</span></p>
             <h3>From RVE to component: forming and thermomechanics</h3>
@@ -571,5 +582,6 @@
   <script src="js/figs/odmn.js" defer></script>
   <script src="js/figs/gnn.js" defer></script>
   <script src="js/figs/mae.js" defer></script>
+  <script src="js/figs/pdmn.js" defer></script>
 </body>
 </html>
