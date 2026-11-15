@@ -323,7 +323,7 @@
           <div class="project__media">
             <figure>
               <div class="figcanvas" data-fig="endo">
-                <canvas role="img" aria-label="Schematic animation: an ultrasonic file oscillates in a root canal, producing acoustic-streaming vortices and pressure-gradient hot spots where bubbles form; the pressure field is condensed into a dimensionless number Gamma along the canal, which is compared with B-mode ultrasound bubble intensity for four file and power cases."></canvas>
+                <canvas role="img" aria-label="Schematic animation in four stages: the pressure-gradient field around an ultrasonic file oscillating in a root canal; its running maximum over one cycle at every point; that maximum mapped through a sigmoid into a bubble-probability field; and a cross-section sweeping down the probability field to build the profile Gamma along the canal, which is compared with B-mode ultrasound bubble intensity for four file and power cases."></canvas>
                 <button class="fig-pause" type="button" aria-label="Pause animation" aria-pressed="false"><span aria-hidden="true"></span></button>
               </div>
               <div class="md-grid endo-clips">
@@ -334,7 +334,7 @@
                   <source src="media/endo-cfd.mp4" type="video/mp4">
                 </video>
               </div>
-              <figcaption><span class="figno">Fig. 7</span> Top (schematic): CFD of the oscillating file &rarr; dimensionless &Gamma; along the canal &rarr; compared with measured bubble intensity for four file/power cases. Bottom: B-mode ultrasound of bubbles (experiment) and simulated acoustic-streaming vortices (CFD).</figcaption>
+              <figcaption><span class="figno">Fig. 7</span> Top (schematic): the live pressure-gradient field around the oscillating file is reduced field by field &mdash; its maximum over one cycle at every point, then a sigmoid bubble probability with threshold &alpha; &mdash; and each cross-section of that probability field is averaged into one point of &Gamma;(z), which is compared with B-mode bubble intensity (schematic) for four file/power cases. Bottom: B-mode ultrasound of bubbles (experiment) and simulated acoustic-streaming vortices (CFD).</figcaption>
             </figure>
           </div>
         </article>
@@ -572,7 +572,7 @@
           <li class="honor"><span class="honor__yr">2023</span><div><p class="honor__t">Xin-Miao (鑫淼) Technology Doctoral Scholarship</p><p class="honor__d">Xin-Miao Education Foundation; awarded to five doctoral students university-wide each year.</p></div></li>
           <li class="honor"><span class="honor__yr">2023</span><div><p class="honor__t">2nd Place, Taipei, NASA Space Apps Challenge</p></div></li>
           <li class="honor honor--key"><span class="honor__yr">2022</span><div><p class="honor__t">Global Winner, Best Use of Science, NASA Space Apps Challenge</p><p class="honor__d">1st of 5,300+ teams worldwide. <a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/carrington-event/teams/whats-new/project" target="_blank" rel="noopener">Project page ↗</a></p></div></li>
-          <li class="honor"><span class="honor__yr">2021</span><div><p class="honor__t">Professional Engineer (PE), Civil Engineering</p><p class="honor__d">Licensed by the Public Construction Commission, Taiwan.</p></div></li>
+          <li class="honor honor--key"><span class="honor__yr">2021</span><div><p class="honor__t">Professional Engineer (PE), Civil Engineering</p><p class="honor__d">Licensed by the Public Construction Commission, Taiwan.</p></div></li>
         </ul>
       </div>
     </section>
@@ -664,6 +664,7 @@
   <script src="js/figs/gnn.js" defer></script>
   <script src="js/figs/mae.js" defer></script>
   <script src="js/figs/pdmn.js" defer></script>
+  <script src="js/figs/tex-endo.js" defer></script>
   <script src="js/figs/endo.js" defer></script>
 </body>
 </html>

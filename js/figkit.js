@@ -100,6 +100,32 @@
         ctx.lineTo(x2 - hl * Math.cos(a + 0.45), y2 - hl * Math.sin(a + 0.45)); ctx.closePath(); ctx.fill();
       }
     };
+    // ---- LaTeX: draw a pre-rendered MathJax SVG (window.TEX_SVG[key]) ----
+    // api.tex(key, x, y, {size: font px, color, align: 'left'|'center'|'right',
+    //                     baseline: 'alphabetic'|'middle'|'top'}) -> {w, h}
+    var texCache = {};
+    api.tex = function (key, x, y, opt) {
+      opt = opt || {};
+      var T = (window.TEX_SVG || {})[key];
+      if (!T) return { w: 0, h: 0 };
+      var size = opt.size || Math.max(11, api.W * 0.024), k = size * 0.442;   // px per ex
+      var w = T.wEx * k, h = T.hEx * k, depth = -T.vaEx * k;
+      var color = opt.color || api.colors.text;
+      var pw = Math.max(1, Math.round(w * api.dpr)), ph = Math.max(1, Math.round(h * api.dpr));
+      var ck = key + '|' + color + '|' + pw + 'x' + ph, im = texCache[ck];
+      if (!im) {
+        im = new Image();
+        var svg = T.svg.replace(/currentColor/g, color)
+          .replace(/width="[^"]*ex"/, 'width="' + pw + '"').replace(/height="[^"]*ex"/, 'height="' + ph + '"');
+        im.onload = function () { if (!raf) render(lastT); };
+        im.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+        texCache[ck] = im;
+      }
+      var x0 = opt.align === 'center' ? x - w / 2 : opt.align === 'right' ? x - w : x;
+      var y0 = opt.baseline === 'middle' ? y - h / 2 : opt.baseline === 'top' ? y : y - (h - depth);
+      if (im.complete && im.naturalWidth) ctx.drawImage(im, x0, y0, w, h);
+      return { w: w, h: h };
+    };
     var fig = factory(api) || {};
     if (!isNaN(forcedT)) api.staticT = forcedT;
     var lastT = api.staticT, start = null, raf = 0, visible = false, userPaused = false;
