@@ -549,10 +549,12 @@
         c.stroke(); c.globalAlpha = 1;
         if (o.big) {
           var cf = Math.max(9, fs * 0.72);
-          api.label('001', o.A[0], o.A[1] + cf * 1.25, { size: cf, align: 'center', color: col.faint });
-          api.label('101', B[0], B[1] + cf * 1.25, { size: cf, align: 'center', color: col.faint });
-          api.label('111', Cc[0], Cc[1] - cf * 0.55, { size: cf, align: 'center', color: col.faint });
-          api.label('IPF-Z', Cc[0] + cf * 0.9, Cc[1] + cf * 0.9, { size: cf, color: col.faint });
+          // IPF corner indices, typeset in LaTeX (js/figs/tex-gnn.js)
+          var tf = cf * 1.15;
+          api.tex('ipf001', o.A[0], o.A[1] + tf * 0.35, { size: tf, align: 'center', baseline: 'top', color: col.muted });
+          api.tex('ipf101', B[0], B[1] + tf * 0.35, { size: tf, align: 'center', baseline: 'top', color: col.muted });
+          api.tex('ipf111', Cc[0], Cc[1] - tf * 0.3, { size: tf, align: 'center', color: col.muted });
+          api.tex('ipfZ', Cc[0] + tf * 0.9, Cc[1] + tf * 1.3, { size: tf, color: col.muted });
         }
         if (f < 1) drawCloud(prev, 1 - f, 1 + h);
         drawCloud(cur, 1, h);
@@ -628,10 +630,8 @@
         api.label('ODMN', rt.x - o.ir - 6.5 - W * 0.012, rt.y + fs * 0.36, { size: fs, align: 'right', color: col.text });
         api.label('GNN', o.bx, o.by + o.bh + fs * 1.3, { size: fs, align: 'center', color: col.accent });
         api.label('EBSD', o.mx, o.my - fs * 0.5, { size: fs });
-        c.font = api.font(fs); var tw1 = c.measureText('TACS \u00b7 2').width, tw2 = c.measureText('N').width * 0.65;
-        var tx = o.A[0] + o.tw * 0.5 - (tw1 + tw2) / 2;
-        api.label('TACS \u00b7 2', tx, bot, { size: fs });
-        api.label('N', tx + tw1 + 0.5, bot - fs * 0.42, { size: fs * 0.65 });
+        // TACS output: 2^N weighted orientations, typeset in LaTeX
+        api.tex(o.big ? 'tacsFull' : 'tacsShort', o.A[0] + o.tw * 0.5, bot, { size: fs * 1.12, align: 'center', color: col.text });
         var la = h < 0.06 ? 1 - 0.55 * h / 0.06 : h < 0.78 ? 0.45 : h < 0.86 ? 0.45 + 0.55 * (h - 0.78) / 0.08 : 1;
         c.globalAlpha = la;
         api.label('no retraining', o.tx1, bot, { size: fs, align: 'right', color: col.gold });
