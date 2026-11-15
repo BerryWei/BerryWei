@@ -145,7 +145,7 @@
   var rand = mulberry32(20260629);
 
   var DEPTH = 4, NLEAF = 1 << DEPTH;
-  var NX = 40, NY = 17;
+  var NX = 24, NY = 24; // square RVE (voxel slice)
 
   // seeds (one grain per leaf), periodic Voronoi
   var seeds = [];
@@ -209,7 +209,7 @@
     W = rect.width; H = rect.height;
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
     var pad = W * 0.07;
-    var top = H * 0.13, leafY = H * 0.47;
+    var top = H * 0.10, leafY = H * 0.40;
     for (var n = 0; n < nodes.length; n++) {
       var nd = nodes[n], cnt = 1 << nd.L;
       var span = W - 2 * pad;
@@ -217,9 +217,10 @@
       nd.y = top + (leafY - top) * (nd.L / DEPTH);
       nd.r = nd.L === DEPTH ? Math.max(3, Math.sqrt(nd.w) * W * 0.06) : Math.max(4.5, W * 0.013 + nd.w * W * 0.01);
     }
-    var gpad = W * 0.13; // leave room for the stretch (F11 up to 1.08) and load arrows
-    grid.cell = (W - 2 * gpad) / NX;
-    grid.x0 = gpad; grid.y0 = H * 0.585;
+    // square RVE, centred; side leaves room for the stretch (F11 up to 1.08) and labels
+    var side = Math.min(H * 0.39, W * 0.62);
+    grid.cell = side / NX;
+    grid.x0 = (W - side) / 2; grid.y0 = H * 0.505;
   }
 
   function easeInOut(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
@@ -364,12 +365,14 @@
 
     // ---- labels ----
     c.font = '500 ' + Math.max(10, W * 0.022) + 'px "JetBrains Mono", ui-monospace, monospace';
-    c.fillStyle = colors.muted; c.textAlign = 'right';
+    c.fillStyle = colors.muted; c.textAlign = 'left';
     var rt = nodeAt(0, 0);
-    c.fillText('macro  σ̄, ℂ̄', W - W * 0.04, rt.y + 4);
-    c.fillText('RVE · ' + NLEAF + ' grains', W - W * 0.04, gy0 + NY * ch + Math.max(16, W * 0.04));
+    c.fillText('macro σ̄, ℂ̄', rt.x + rt.r + 10, rt.y + 4);
+    c.textAlign = 'right';
+    var labY = H - Math.max(10, W * 0.03);
+    c.fillText('RVE · ' + NLEAF + ' grains', W - W * 0.04, labY);
     c.textAlign = 'left';
-    c.fillText(upward === false && phase >= 0 ? '↓ downscale' : (phase < 0 ? '● update' : '↑ homogenize'), W * 0.04, gy0 + NY * ch + Math.max(16, W * 0.04));
+    c.fillText(upward === false && phase >= 0 ? '↓ downscale' : (phase < 0 ? '● update' : '↑ homogenize'), W * 0.04, labY);
 
     // ---- hover tooltip ----
     if (hover) {
