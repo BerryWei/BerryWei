@@ -164,10 +164,11 @@
         <article class="project" id="r-odmn">
           <div class="project__media">
             <figure>
-              <video class="autoplay" muted loop playsinline preload="none" poster="media/odmn-texture.webp" width="1100" height="590" aria-label="Pole figures: ODMN learns the crystallographic texture of an 809-grain polycrystal during training">
-                <source src="media/odmn-texture.mp4" type="video/mp4">
-              </video>
-              <figcaption><span class="figno">Fig. 1</span> ODMN recovers the orientation distribution of an 809-grain RVE from elastic stiffness alone. Top: DNS target. Bottom: learned leaf weights during training.</figcaption>
+              <div class="figcanvas" data-fig="odmn">
+                <canvas role="img" aria-label="Schematic animation: each leaf of an orientation-aware material network carries a crystal lattice orientation; under loading the lattices rotate and the orientation points on a pole figure drift into a deformation texture."></canvas>
+                <button class="fig-pause" type="button" aria-label="Pause animation" aria-pressed="false"><span aria-hidden="true"></span></button>
+              </div>
+              <figcaption><span class="figno">Fig. 1</span> Schematic. Each ODMN leaf carries a crystal orientation; under load the lattices rotate and the texture (pole figure, right) evolves, predicted from elastic training alone.</figcaption>
             </figure>
           </div>
           <div class="project__body">
@@ -208,10 +209,11 @@
         <article class="project" id="r-gnn">
           <div class="project__media">
             <figure>
-              <video class="autoplay" muted loop playsinline preload="none" poster="media/tacs-gnn.webp" width="1000" height="856" aria-label="Unseen strongly textured RVE: inferred ODMN matches DAMASK-FFT pole figures and cyclic stress-strain response without retraining">
-                <source src="media/tacs-gnn.mp4" type="video/mp4">
-              </video>
-              <figcaption><span class="figno">Fig. 3</span> An unseen RVE: inferred ODMN (no retraining) against full-field DAMASK-FFT, for both texture and cyclic stress–strain response.</figcaption>
+              <div class="figcanvas" data-fig="gnn">
+                <canvas role="img" aria-label="Schematic animation: a microstructure is converted into a grain graph; messages pass along grain-boundary edges in a graph neural network, while texture-adaptive clustering compresses orientations, and together they set the parameters of a deep material network without retraining."></canvas>
+                <button class="fig-pause" type="button" aria-label="Pause animation" aria-pressed="false"><span aria-hidden="true"></span></button>
+              </div>
+              <figcaption><span class="figno">Fig. 3</span> Schematic. Grain graph → GNN message passing sets the interface directions; TACS clusters the texture into 2<sup>N</sup> orientations. A new microstructure gets its network without retraining.</figcaption>
             </figure>
           </div>
           <div class="project__body">
@@ -231,10 +233,11 @@
         <article class="project project--flip" id="r-fm">
           <div class="project__media">
             <figure>
-              <video class="autoplay" muted loop playsinline preload="none" poster="media/mmae-pretrain.webp" width="756" height="304" aria-label="Masked autoencoder pretraining: microstructure patches are masked and reconstructed">
-                <source src="media/mmae-pretrain.mp4" type="video/mp4">
-              </video>
-              <figcaption><span class="figno">Fig. 4</span> Self-supervised masked-autoencoder pretraining on microstructure images: mask, encode, reconstruct.</figcaption>
+              <div class="figcanvas" data-fig="mae">
+                <canvas role="img" aria-label="Schematic animation: patches of a microstructure are randomly masked, an encoder compresses the visible patches into a latent code, and a decoder reconstructs the full microstructure; the pretrained encoder then predicts stiffness and network parameters."></canvas>
+                <button class="fig-pause" type="button" aria-label="Pause animation" aria-pressed="false"><span aria-hidden="true"></span></button>
+              </div>
+              <figcaption><span class="figno">Fig. 4</span> Schematic. Masked-autoencoder pretraining: hide patches, encode, reconstruct. The pretrained encoder then feeds stiffness and network-parameter heads.</figcaption>
             </figure>
           </div>
           <div class="project__body">
@@ -267,9 +270,7 @@
         <h3 class="subhead">Earlier work</h3>
         <div class="cards">
           <article class="card">
-            <video class="autoplay" muted loop playsinline preload="none" poster="media/hea-md.webp" width="880" height="376" aria-label="Exploratory molecular dynamics tension simulation of a high-entropy alloy, with defect structures colored">
-              <source src="media/hea-md.mp4" type="video/mp4">
-            </video>
+            <img src="media/hea-md.webp" width="880" height="376" alt="Molecular dynamics snapshot of a high-entropy alloy under tension, with stacking faults and twins colored by defect type." loading="lazy" decoding="async">
             <div class="card__body">
               <p class="card__meta">Mater. Chem. Phys. 2021 · co-author</p>
               <h4>Deformation mechanisms in CoCrFeMnNi high-entropy alloys</h4>
@@ -313,7 +314,7 @@
           <div role="tabpanel" id="pub-journal" aria-labelledby="tab-journal" tabindex="0">
           <ol class="pubs" reversed>
             <li class="pub">
-              <img class="pub__thumb" src="media/pub-pub08.webp" alt="" loading="lazy" decoding="async">
+              <button class="pub__fig" type="button" data-full="media/ga-pdmn.webp" aria-label="Enlarge: Graphical abstract: piezoelectric deep material network"><img class="pub__thumb" src="media/ga-pdmn-sm.webp" alt="Graphical abstract: piezoelectric deep material network" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Deep material network for homogenization of piezoelectric composites</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, Y.-M. Lu, C.-S. Chen</p>
@@ -322,7 +323,7 @@
               </div>
             </li>
             <li class="pub">
-              <img class="pub__thumb" src="media/pub-pub06.webp" alt="" loading="lazy" decoding="async">
+              <button class="pub__fig" type="button" data-full="media/ga-tacs.webp" aria-label="Enlarge: Graphical abstract: TACS–GNN–ODMN framework"><img class="pub__thumb" src="media/ga-tacs-sm.webp" alt="Graphical abstract: TACS–GNN–ODMN framework" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">A parametric multiscale surrogate framework based on texture-generalizable Deep Material Networks for polycrystal modeling</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, T.-H. Su, C.-S. Chen</p>
@@ -331,7 +332,7 @@
               </div>
             </li>
             <li class="pub">
-              <img class="pub__thumb" src="media/pub-pub05.webp" alt="" loading="lazy" decoding="async">
+              <button class="pub__fig" type="button" data-full="media/ill-review.svg" aria-label="Enlarge: Illustration: the deep material network family"><img class="pub__thumb" src="media/ill-review.svg" alt="Illustration: the deep material network family" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Deep Material Network: overview, applications, and current directions</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, W.-N. Wan, C.-S. Chen</p>
@@ -340,7 +341,7 @@
               </div>
             </li>
             <li class="pub">
-              <img class="pub__thumb" src="media/pub-pub07.webp" alt="" loading="lazy" decoding="async">
+              <button class="pub__fig" type="button" data-full="media/ga-polyfm.webp" aria-label="Enlarge: Graphical abstract: foundation model for polycrystals"><img class="pub__thumb" src="media/ga-polyfm-sm.webp" alt="Graphical abstract: foundation model for polycrystals" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Efficient nonlinear multiscale prediction for unseen polycrystalline textures via self-supervised microstructure pretraining</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
@@ -349,7 +350,7 @@
               </div>
             </li>
             <li class="pub">
-              <img class="pub__thumb" src="media/pub-pub04.webp" alt="" loading="lazy" decoding="async">
+              <button class="pub__fig" type="button" data-full="media/ga-mmae.webp" aria-label="Enlarge: Graphical abstract: foundation model for composite microstructures"><img class="pub__thumb" src="media/ga-mmae-sm.webp" alt="Graphical abstract: foundation model for composite microstructures" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Foundation model for composite microstructures: reconstruction, stiffness, and nonlinear behavior prediction</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
@@ -358,7 +359,7 @@
               </div>
             </li>
             <li class="pub">
-              <img class="pub__thumb" src="media/pub-pub03.webp" alt="" loading="lazy" decoding="async">
+              <button class="pub__fig" type="button" data-full="media/ga-odmn.webp" aria-label="Enlarge: Graphical abstract: orientation-aware interaction-based DMN"><img class="pub__thumb" src="media/ga-odmn-sm.webp" alt="Graphical abstract: orientation-aware interaction-based DMN" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Orientation-aware interaction-based deep material network in polycrystalline materials modeling</p>
                 <p class="pub__authors"><b>T.-J. Wei</b>, T.-H. Su, C.-S. Chen</p>
@@ -367,7 +368,7 @@
               </div>
             </li>
             <li class="pub">
-              <img class="pub__thumb" src="media/pub-pub02b.webp" alt="" loading="lazy" decoding="async">
+              <button class="pub__fig" type="button" data-full="media/ill-decoding.svg" aria-label="Enlarge: Illustration: DMN versus IMN building blocks"><img class="pub__thumb" src="media/ill-decoding.svg" alt="Illustration: DMN versus IMN building blocks" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Decoding material networks: exploring performance of deep material network and interaction-based material networks</p>
                 <p class="pub__authors">W.-N. Wan, <b>T.-J. Wei</b>, T.-H. Su, C.-S. Chen</p>
@@ -375,7 +376,7 @@
               </div>
             </li>
             <li class="pub">
-              <img class="pub__thumb" src="media/pub-pub01b.webp" alt="" loading="lazy" decoding="async">
+              <button class="pub__fig" type="button" data-full="media/ill-hea.svg" aria-label="Enlarge: Illustration: stacking faults and twins in an FCC high-entropy alloy"><img class="pub__thumb" src="media/ill-hea.svg" alt="Illustration: stacking faults and twins in an FCC high-entropy alloy" loading="lazy" decoding="async"></button>
               <div>
                 <p class="pub__title">Mechanical properties and deformation mechanisms in CoCrFeMnNi high entropy alloys: a molecular dynamics study</p>
                 <p class="pub__authors">K.-T. Chen, <b>T.-J. Wei</b>, G.-C. Li, M.-Y. Chen, Y.-S. Chen, S.-W. Chang, H.-W. Yen, C.-S. Chen</p>
@@ -560,6 +561,15 @@
     </div>
   </footer>
 
+  <dialog class="lightbox" aria-label="Enlarged figure">
+    <button class="lightbox__close" type="button" aria-label="Close">×</button>
+    <img alt="">
+  </dialog>
+
   <script src="js/main.js" defer></script>
+  <script src="js/figkit.js" defer></script>
+  <script src="js/figs/odmn.js" defer></script>
+  <script src="js/figs/gnn.js" defer></script>
+  <script src="js/figs/mae.js" defer></script>
 </body>
 </html>

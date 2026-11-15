@@ -1,4 +1,4 @@
-/* Ting-Ju (Berry) Wei — site script (no dependencies) */
+/* Ting-Ju (Berry) Wei \u2014 site script (no dependencies) */
 (function () {
   'use strict';
   var root = document.documentElement;
@@ -120,6 +120,25 @@
     });
   }
 
+  /* ---------- figure lightbox (publication graphical abstracts) ---------- */
+  var lb = document.querySelector('.lightbox');
+  if (lb && lb.showModal) {
+    var lbImg = lb.querySelector('img');
+    Array.prototype.forEach.call(document.querySelectorAll('.pub__fig'), function (b) {
+      b.addEventListener('click', function () {
+        var im = b.querySelector('img');
+        lbImg.src = b.getAttribute('data-full'); lbImg.alt = im ? im.alt : '';
+        lb.showModal();
+      });
+    });
+    lb.querySelector('.lightbox__close').addEventListener('click', function () { lb.close(); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+  } else {
+    Array.prototype.forEach.call(document.querySelectorAll('.pub__fig'), function (b) {
+      b.addEventListener('click', function () { window.open(b.getAttribute('data-full'), '_blank', 'noopener'); });
+    });
+  }
+
   var yr = document.getElementById('yr');
   if (yr) yr.textContent = String(new Date().getFullYear());
 
@@ -218,9 +237,9 @@
       nd.r = nd.L === DEPTH ? Math.max(3, Math.sqrt(nd.w) * W * 0.06) : Math.max(4.5, W * 0.013 + nd.w * W * 0.01);
     }
     // square RVE, centred; side leaves room for the stretch (F11 up to 1.08) and labels
-    var side = Math.min(H * 0.39, W * 0.62);
+    var side = Math.min(H * 0.36, W * 0.46); // room for F11 up to 1.4 plus load arrows
     grid.cell = side / NX;
-    grid.x0 = (W - side) / 2; grid.y0 = H * 0.505;
+    grid.x0 = (W - side) / 2; grid.y0 = H * 0.52;
   }
 
   function easeInOut(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
@@ -232,57 +251,71 @@
     c.clearRect(0, 0, W, H);
 
     // cycle: 0-.45 up, .45-.55 hold at root, .55-1 down
-    var F = 1 + 0.08 * (0.5 - 0.5 * Math.cos(2 * Math.PI * t));
+    // Schematic only: deformation is deliberately exaggerated (F11 up to FMAX).
+    var FMAX = 1.4;
+    var F = 1 + (FMAX - 1) * (0.5 - 0.5 * Math.cos(2 * Math.PI * t));
     if (readout) readout.textContent = F.toFixed(3);
+    var e = F - 1;
 
-    // ---- polycrystal (stretched about its centre, volume preserving) ----
-    var gw = NX * grid.cell, gh = NY * grid.cell;
-    var cxm = grid.x0 + gw / 2, cym = grid.y0 + gh / 2;
-    var sx = F, sy = 1 / Math.sqrt(F);
-    var cw = grid.cell * sx, ch = grid.cell * sy;
-    var gx0 = cxm - gw * sx / 2, gy0 = cym - gh * sy / 2;
+    // ---- polycrystal: heterogeneous, roughly volume-preserving stretch with necking ----
+    var side = NX * grid.cell;
+    var cxm = grid.x0 + side / 2, cym = grid.y0 + side / 2;
+    function map(x, y) {
+      var u = x / NX - 0.5, v = y / NY - 0.5;
+      var xs = u * F + 0.05 * e * Math.sin(2 * Math.PI * v) * Math.cos(Math.PI * u);
+      var neck = 1 - 0.55 * e * Math.cos(Math.PI * u) * Math.cos(Math.PI * u);
+      var ys = v / Math.sqrt(F) * neck + 0.03 * e * Math.sin(2 * Math.PI * u);
+      return { x: cxm + xs * side, y: cym + ys * side };
+    }
+    var P = new Array((NX + 1) * (NY + 1));
+    for (var pj = 0; pj <= NY; pj++) for (var pi = 0; pi <= NX; pi++) P[pj * (NX + 1) + pi] = map(pi, pj);
+    function pt(i, j) { return P[j * (NX + 1) + i]; }
     for (var j = 0; j < NY; j++) {
       for (var i = 0; i < NX; i++) {
+        var a = pt(i, j), b = pt(i + 1, j), d = pt(i + 1, j + 1), f = pt(i, j + 1);
         c.fillStyle = seeds[owner[j * NX + i]].fill;
-        c.fillRect(gx0 + i * cw, gy0 + j * ch, cw + 0.6, ch + 0.6);
+        c.beginPath(); c.moveTo(a.x, a.y); c.lineTo(b.x, b.y); c.lineTo(d.x, d.y); c.lineTo(f.x, f.y); c.closePath();
+        c.fill(); c.strokeStyle = c.fillStyle; c.lineWidth = 0.6; c.stroke();
       }
     }
+    // voxel hint
+    c.strokeStyle = colors.dark ? 'rgba(255,255,255,.05)' : 'rgba(0,0,0,.05)';
+    c.lineWidth = 1;
+    c.beginPath();
+    for (var i3 = 1; i3 < NX; i3++) { c.moveTo(pt(i3, 0).x, pt(i3, 0).y); for (var j4 = 1; j4 <= NY; j4++) c.lineTo(pt(i3, j4).x, pt(i3, j4).y); }
+    for (var j3 = 1; j3 < NY; j3++) { c.moveTo(pt(0, j3).x, pt(0, j3).y); for (var i4 = 1; i4 <= NX; i4++) c.lineTo(pt(i4, j3).x, pt(i4, j3).y); }
+    c.stroke();
     // grain boundaries
-    c.strokeStyle = colors.dark ? 'rgba(0,0,0,.55)' : 'rgba(255,255,255,.95)';
-    c.lineWidth = 1.4;
+    c.strokeStyle = colors.dark ? 'rgba(0,0,0,.6)' : 'rgba(255,255,255,.95)';
+    c.lineWidth = 1.5;
     c.beginPath();
     for (var j2 = 0; j2 < NY; j2++) {
       for (var i2 = 0; i2 < NX; i2++) {
-        var o = owner[j2 * NX + i2];
-        if (i2 + 1 < NX && owner[j2 * NX + i2 + 1] !== o) { c.moveTo(gx0 + (i2 + 1) * cw, gy0 + j2 * ch); c.lineTo(gx0 + (i2 + 1) * cw, gy0 + (j2 + 1) * ch); }
-        if (j2 + 1 < NY && owner[(j2 + 1) * NX + i2] !== o) { c.moveTo(gx0 + i2 * cw, gy0 + (j2 + 1) * ch); c.lineTo(gx0 + (i2 + 1) * cw, gy0 + (j2 + 1) * ch); }
+        var o = owner[j2 * NX + i2], q1, q2;
+        if (i2 + 1 < NX && owner[j2 * NX + i2 + 1] !== o) { q1 = pt(i2 + 1, j2); q2 = pt(i2 + 1, j2 + 1); c.moveTo(q1.x, q1.y); c.lineTo(q2.x, q2.y); }
+        if (j2 + 1 < NY && owner[(j2 + 1) * NX + i2] !== o) { q1 = pt(i2, j2 + 1); q2 = pt(i2 + 1, j2 + 1); c.moveTo(q1.x, q1.y); c.lineTo(q2.x, q2.y); }
       }
     }
     c.stroke();
-    // voxel hint
-    c.strokeStyle = colors.dark ? 'rgba(255,255,255,.035)' : 'rgba(0,0,0,.035)';
-    c.lineWidth = 1;
-    c.beginPath();
-    for (var i3 = 1; i3 < NX; i3++) { c.moveTo(gx0 + i3 * cw, gy0); c.lineTo(gx0 + i3 * cw, gy0 + NY * ch); }
-    for (var j3 = 1; j3 < NY; j3++) { c.moveTo(gx0, gy0 + j3 * ch); c.lineTo(gx0 + NX * cw, gy0 + j3 * ch); }
-    c.stroke();
-    c.strokeStyle = colors.muted; c.globalAlpha = 0.5; c.lineWidth = 1;
-    c.strokeRect(gx0, gy0, NX * cw, NY * ch);
-    c.globalAlpha = 1;
+    // outline
+    c.strokeStyle = colors.muted; c.globalAlpha = 0.6; c.lineWidth = 1;
+    c.beginPath(); c.moveTo(pt(0, 0).x, pt(0, 0).y);
+    for (var ob = 1; ob <= NX; ob++) c.lineTo(pt(ob, 0).x, pt(ob, 0).y);
+    for (ob = 1; ob <= NY; ob++) c.lineTo(pt(NX, ob).x, pt(NX, ob).y);
+    for (ob = NX - 1; ob >= 0; ob--) c.lineTo(pt(ob, NY).x, pt(ob, NY).y);
+    for (ob = NY - 1; ob >= 0; ob--) c.lineTo(pt(0, ob).x, pt(0, ob).y);
+    c.stroke(); c.globalAlpha = 1;
 
-    // loading arrows
-    c.strokeStyle = colors.muted; c.fillStyle = colors.muted; c.lineWidth = 1.2;
-    var ay = gy0 + NY * ch / 2, al = W * 0.035;
-    [[gx0 - 4, -1], [gx0 + NX * cw + 4, 1]].forEach(function (a) {
-      c.beginPath(); c.moveTo(a[0], ay); c.lineTo(a[0] + a[1] * al, ay); c.stroke();
-      c.beginPath(); c.moveTo(a[0] + a[1] * (al + 5), ay); c.lineTo(a[0] + a[1] * al, ay - 3.5); c.lineTo(a[0] + a[1] * al, ay + 3.5); c.closePath(); c.fill();
+    // loading arrows (grow with load)
+    c.strokeStyle = colors.muted; c.fillStyle = colors.muted; c.lineWidth = 1.3;
+    var lm = pt(0, NY / 2 | 0), rm = pt(NX, NY / 2 | 0), al = W * (0.03 + 0.05 * e / (FMAX - 1));
+    [[lm.x - 4, lm.y, -1], [rm.x + 4, rm.y, 1]].forEach(function (a) {
+      c.beginPath(); c.moveTo(a[0], a[1]); c.lineTo(a[0] + a[2] * al, a[1]); c.stroke();
+      c.beginPath(); c.moveTo(a[0] + a[2] * (al + 6), a[1]); c.lineTo(a[0] + a[2] * al, a[1] - 4); c.lineTo(a[0] + a[2] * al, a[1] + 4); c.closePath(); c.fill();
     });
+    var gy0 = Math.max(pt(0, NY).y, pt(NX, NY).y);
 
-    // grain anchor positions (seed, stretched; use nearest periodic image inside box)
-    function anchor(gi) {
-      var sd = seeds[gi];
-      return { x: gx0 + sd.x * cw, y: gy0 + sd.y * ch };
-    }
+    function anchor(gi) { var sd = seeds[gi]; return map(sd.x, sd.y); }
 
     // ---- connectors leaf -> grain ----
     c.setLineDash([2, 3]); c.lineWidth = 1;
@@ -357,7 +390,7 @@
       c.stroke();
       if (!isLeaf) {
         // laminate direction of this building block (rotates slightly with load)
-        var th = (nn.theta + (F - 1) * 60 * (nn.k % 2 ? 1 : -1)) * Math.PI / 180, rr = nn.r * 0.72;
+        var th = (nn.theta + (F - 1) * 70 * (nn.k % 2 ? 1 : -1)) * Math.PI / 180, rr = nn.r * 0.72;
         c.strokeStyle = nn.L === 0 ? colors.accent : colors.text; c.lineWidth = 1.2;
         c.beginPath(); c.moveTo(nn.x - Math.cos(th) * rr, nn.y - Math.sin(th) * rr); c.lineTo(nn.x + Math.cos(th) * rr, nn.y + Math.sin(th) * rr); c.stroke();
       }
@@ -367,18 +400,18 @@
     c.font = '500 ' + Math.max(10, W * 0.022) + 'px "JetBrains Mono", ui-monospace, monospace';
     c.fillStyle = colors.muted; c.textAlign = 'left';
     var rt = nodeAt(0, 0);
-    c.fillText('macro σ̄, ℂ̄', rt.x + rt.r + 10, rt.y + 4);
+    c.fillText('macro \u03c3\u0304, \u2102\u0304', rt.x + rt.r + 10, rt.y + 4);
     c.textAlign = 'right';
     var labY = H - Math.max(10, W * 0.03);
-    c.fillText('RVE · ' + NLEAF + ' grains', W - W * 0.04, labY);
+    c.fillText('RVE \u00b7 ' + NLEAF + ' grains', W - W * 0.04, labY);
     c.textAlign = 'left';
-    c.fillText(upward === false && phase >= 0 ? '↓ downscale' : (phase < 0 ? '● update' : '↑ homogenize'), W * 0.04, labY);
+    c.fillText(upward === false && phase >= 0 ? '\u2193 downscale' : (phase < 0 ? '\u25cf update' : '\u2191 homogenize'), W * 0.04, labY);
 
     // ---- hover tooltip ----
     if (hover) {
       var label = hover.L === DEPTH
-        ? 'grain ' + (hover.grain + 1) + ' · w = ' + hover.w.toFixed(3)
-        : (hover.L === 0 ? 'root · homogenized RVE' : 'block L' + hover.L + ' · θ = ' + hover.theta + '° · w = ' + hover.w.toFixed(3));
+        ? 'grain ' + (hover.grain + 1) + ' \u00b7 w = ' + hover.w.toFixed(3)
+        : (hover.L === 0 ? 'root \u00b7 homogenized RVE' : 'block L' + hover.L + ' \u00b7 \u03b8 = ' + hover.theta + '\u00b0 \u00b7 w = ' + hover.w.toFixed(3));
       c.font = '500 ' + Math.max(11, W * 0.022) + 'px "JetBrains Mono", ui-monospace, monospace';
       var tw = c.measureText(label).width + 14, th2 = Math.max(22, W * 0.045);
       var tx = Math.min(Math.max(hover.x - tw / 2, 6), W - tw - 6), ty = hover.y - hover.r - th2 - 8;
