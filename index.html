@@ -1,333 +1,571 @@
-<!DOCTYPE HTML>
-<!--
-	Ting Ju (Berry) Wei
--->
-<html>
-	<head>
-		<title>Ting-Ju (Berry) Wei</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Ting-Ju (Berry) Wei — Postdoctoral Researcher in AI for Engineering Applications at National Taiwan University. AI-driven multiscale modeling, deep material networks, and physics-informed surrogate models for materials." />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<meta property="og:title" content="Ting-Ju (Berry) Wei" >
-		<meta property="og:description" content="Postdoctoral Researcher in AI for Engineering Applications, National Taiwan University — deep material networks and AI-driven multiscale materials modeling." >
-		<meta property="og:type" content="website" >
-		<meta property="og:url" content="https://berrywei.github.io/BerryWei/" >
-		<meta property="og:image" content="https://berrywei.github.io/BerryWei/images/IMG_8550.jpg" >
-		<!-- Center the text-only sections (Publications, Awards) so they match the rest of the page -->
-		<style>
-			#publications, #awards { text-align: center; }
-			#publications h2.major, #awards h2.major { margin-left: auto; margin-right: auto; }
-			#publications ul.alt, #awards ul.alt { margin-left: auto; margin-right: auto; }
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ting-Ju (Berry) Wei — Computational Mechanics &amp; Scientific Machine Learning</title>
+  <meta name="description" content="Ting-Ju (Berry) Wei, Ph.D. — computational mechanics researcher developing Deep Material Networks, crystal plasticity, and foundation models for multiscale materials simulation. R&amp;D Technical Consultant at Special Melted Products, Sheffield.">
+  <meta name="author" content="Ting-Ju Wei">
+  <meta property="og:title" content="Ting-Ju (Berry) Wei — Computational Mechanics &amp; Scientific ML">
+  <meta property="og:description" content="Physics-informed machine learning for multiscale materials simulation — from crystal grains to engineered components.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://berrywei.github.io/BerryWei/">
+  <meta property="og:image" content="https://berrywei.github.io/BerryWei/media/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#FAF9F6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0D1015" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&text=%E9%AD%8F%E5%BB%B7%E5%84%92&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ting-Ju Wei",
+    "alternateName": ["Berry Wei", "魏廷儒"],
+    "jobTitle": "R&D Technical Consultant",
+    "worksFor": {"@type": "Organization", "name": "Special Melted Products Ltd"},
+    "alumniOf": [{"@type": "CollegeOrUniversity", "name": "National Taiwan University"}, {"@type": "CollegeOrUniversity", "name": "National Chung Hsing University"}],
+    "url": "https://berrywei.github.io/BerryWei/",
+    "sameAs": ["https://scholar.google.com/citations?user=xG39dbQAAAAJ", "https://www.linkedin.com/in/ting-ju-wei-6985ba187/", "https://github.com/BerryWei"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
-			/* Nav: the template's centered "middle" divider assumes equal-width items.
-			   With 6 uneven-width labels it lands off the item boundary, so disable the
-			   decorative line and keep a normal border between every item instead.
-			   Scoped to the horizontal nav (>=481px); below that the nav stacks vertically
-			   with top borders, which the template already handles correctly. */
-			@media screen and (min-width: 481px) {
-				#header nav.use-middle:after { display: none; }
-				#header nav.use-middle ul li.is-middle { border-left: solid 1px #ffffff; }
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+  <header class="topbar" id="top">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="#top">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="4" r="2.2"/><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="12" r="2.2"/><circle cx="3" cy="20" r="1.6"/><circle cx="9" cy="20" r="1.6"/><circle cx="15" cy="20" r="1.6"/><circle cx="21" cy="20" r="1.6"/><path d="M10.4 5.6 7.4 10.4M13.6 5.6l3 4.8M5 13.8 3.6 18.5M7 13.8l1.4 4.7M17 13.8l-1.4 4.7M19 13.8l1.4 4.7"/></g></svg>
+        </span>
+        <span class="brand__name">Ting-Ju Wei</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-list"><span class="sr">Menu</span><span aria-hidden="true"></span></button>
+        <ul id="nav-list">
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#honors">Honors</a></li>
+          <li><a href="#cv">CV</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme" type="button" aria-label="Toggle dark mode">
+        <svg class="theme__sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></g></svg>
+        <svg class="theme__moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8Z"/></svg>
+      </button>
+    </div>
+  </header>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  <main id="main">
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Ting-Ju (Berry) Wei</h1>
-								<p>Postdoctoral Researcher in the AI for Engineering Applications division,<br />
-								Department of Civil Engineering, National Taiwan University.</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#intro">Intro</a></li>
-								<li><a href="#research">Research</a></li>
-								<li><a href="#publications">Publications</a></li>
-								<li><a href="#awards">Awards</a></li>
-								<li><a href="#activity">Activity</a></li>
-								<li><a href="#contact">Contact</a></li>
-							</ul>
-						</nav>
-					</header>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow">Computational Mechanics · Scientific Machine Learning</p>
+          <h1 class="hero__name">Ting-Ju <span class="hero__nick">(Berry)</span> Wei <span class="hero__zh" lang="zh-Hant">魏廷儒</span></h1>
+          <p class="hero__role">R&amp;D Technical Consultant, <a href="https://specialmeltedproducts.com/" target="_blank" rel="noopener">Special Melted Products</a> · Sheffield, UK<br>
+            Ph.D., National Taiwan University (2026)</p>
+          <p class="hero__lede">I build <strong>physics-informed machine learning for multiscale materials simulation</strong>, linking what happens inside crystal grains to how engineered components deform, making microstructure-aware simulation orders of magnitude cheaper than full-field methods.</p>
+          <div class="hero__actions">
+            <a class="btn btn--solid" href="docs/Berry_Wei_CV.pdf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 19h16"/></svg>
+              Curriculum Vitae</a>
+            <a class="btn" href="https://scholar.google.com/citations?user=xG39dbQAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+            <a class="btn" href="https://www.linkedin.com/in/ting-ju-wei-6985ba187/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/BerryWei" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
 
-				<!-- Main -->
-					<div id="main">
+        <figure class="hero__fig" aria-labelledby="fig0-cap">
+          <div class="hero__canvas">
+            <canvas id="dmn-canvas" role="img" aria-label="Animated illustration: a voxelized polycrystal whose grains feed the leaves of a binary-tree deep material network; signals propagate from the leaves up to the root."></canvas>
+            <button class="hero__pause" type="button" aria-label="Pause animation" aria-pressed="false"><span aria-hidden="true"></span></button>
+            <div class="hero__readout" aria-hidden="true"><span>F<sub>11</sub></span> <b id="f11">1.000</b></div>
+          </div>
+          <figcaption id="fig0-cap"><span class="figno">Fig. 0</span> A deep material network: a binary tree of laminate building blocks that homogenizes a polycrystalline RVE, trained on linear elastic data and extrapolating to crystal plasticity.</figcaption>
+        </figure>
+      </div>
 
-							<!-- Intro -->
-							<article id="intro">
-							<h2 class="major">Intro</h2>
+      <div class="wrap">
+        <dl class="stats">
+          <div><dt>Speed-up vs. full-field DNS</dt><dd>10<sup>2</sup>–10<sup>4</sup>×</dd></div>
+          <div><dt>Journal articles &amp; preprints</dt><dd>8</dd></div>
+          <div><dt>Conference abstracts</dt><dd>10</dd></div>
+          <div><dt>Doctoral dissertation awards</dt><dd>2</dd></div>
+        </dl>
+      </div>
+    </section>
 
-							<!-- Profile image: add size to reduce CLS; lazy-loading for performance -->
-							<span class="image main" style="text-align:center;">
-								<img
-								src="images/IMG_8550.jpg"
-								alt="Portrait of Ting-Ju (Berry) Wei"
-								loading="lazy"
-								width="720" height="900"
-								style="max-width: 320px; width: 66%; height: auto; margin: 0 auto; display: block; border-radius: 12px;" />
-							</span>
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about" aria-labelledby="about-h">
+      <div class="wrap grid-side">
+        <header class="section__head">
+          <p class="section__num">01</p>
+          <h2 id="about-h">About</h2>
+        </header>
+        <div class="about">
+          <img class="about__photo" src="media/portrait.webp" width="481" height="633" alt="Portrait of Ting-Ju (Berry) Wei" loading="lazy" decoding="async">
+          <div class="prose">
+            <p>I am an <strong>R&amp;D Technical Consultant at Special Melted Products Ltd</strong> in Sheffield, UK, where I work on dynamic recrystallization, multiscale modeling and digital twins for superalloy processing, connecting process conditions, microstructural evolution and mechanical properties.</p>
+            <p>I received my <strong>Ph.D. in Civil Engineering (AI for Engineering Applications) from National Taiwan University</strong> in 2026, advised by <a href="https://www.ce.ntu.edu.tw/" target="_blank" rel="noopener">Distinguished Prof. Chuin-Shan (David) Chen</a>. My dissertation, <em>Deep Material Networks for Microstructure Learning in Multiscale Simulations</em>, received the 2026 STAM Doctoral Dissertation Award and the Doctoral Dissertation Award of the 19th TOPCO Thesis Award. After the Ph.D. I stayed on as a postdoctoral researcher, building DMN and crystal-plasticity UMATs for Abaqus and applying them to deep drawing and other industrial forming problems.</p>
+            <p>My work sits between <strong>mechanics and machine learning</strong>. I treat the surrogate as a reduced-order <em>geometric</em> representation of the microstructure, so equilibrium and compatibility hold by construction, and I use graph neural networks and self-supervised foundation models to infer that geometry for microstructures the network has never seen.</p>
+            <ul class="tags" aria-label="Research interests">
+              <li>Deep Material Networks</li><li>Crystal plasticity</li><li>Multiscale homogenization (FE²)</li><li>Texture evolution</li><li>Piezoelectric composites</li><li>Graph neural networks</li><li>Foundation models</li><li>Digital twins</li><li>Superalloys</li><li>Molecular dynamics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-							<!-- First pitch paragraph: who you are + affiliation -->
-							<p>
-								I am a Postdoctoral Researcher in the <em>AI for Engineering Applications</em> division,
-								Department of Civil Engineering, National Taiwan University, where I completed my Ph.D. in 2026.
-								My research develops <strong>AI-driven multiscale modeling</strong> and physics-based simulation
-								that link microstructure, material behavior, and macroscopic performance across scales.
-							</p>
+    <!-- ============ RESEARCH ============ -->
+    <section class="section section--alt" id="research" aria-labelledby="research-h">
+      <div class="wrap">
+        <header class="section__head section__head--wide">
+          <p class="section__num">02</p>
+          <h2 id="research-h">Research</h2>
+          <p class="section__lede">Full-field multiscale simulation (FE², FE-FFT) solves a nested RVE problem at every material point, which is accurate but prohibitively expensive. Purely data-driven surrogates are fast but data-hungry and carry no physics guarantees. My research takes a third path along two axes.</p>
+        </header>
 
-							<!-- Quick actions: buttons for Scholar / CV / Email / LinkedIn -->
-							<div class="actions" style="display:flex; flex-wrap:wrap; gap:8px; margin: 0 0 1rem 0;">
-								<a class="button"
-								href="https://scholar.google.com/citations?user=xG39dbQAAAAJ&hl=zh-TW"
-								target="_blank" rel="noopener" aria-label="Open Google Scholar profile">
-								Google Scholar
-								</a>
-								<a class="button"
-								href="docs/Berry_Wei_CV.pdf"
-								target="_blank" rel="noopener" aria-label="Download CV PDF">
-								Download CV
-								</a>
-								<a class="button" href="mailto:berrya90239@gmail.com" aria-label="Send an email to Berry">
-								Email
-								</a>
-								<a class="button"
-								href="https://www.linkedin.com/in/ting-ju-wei-6985ba187/"
-								target="_blank" rel="noopener" aria-label="Open LinkedIn profile">
-								LinkedIn
-								</a>
-							</div>
+        <div class="axes">
+          <div class="axis">
+            <p class="axis__label">Axis A</p>
+            <h3>Extend the physics the network carries</h3>
+            <p>Enrich the laminate building block (electromechanical coupling, crystal orientation, texture evolution) without changing the tree.</p>
+            <p class="axis__items"><a href="#r-pdmn">PDMN</a> · <a href="#r-odmn">ODMN</a></p>
+          </div>
+          <div class="axis">
+            <p class="axis__label">Axis B</p>
+            <h3>Learn to infer the geometry</h3>
+            <p>Predict network parameters directly from a microstructure, so a new RVE needs no retraining.</p>
+            <p class="axis__items"><a href="#r-gnn">TACS–GNN–ODMN</a> · <a href="#r-fm">Foundation models</a></p>
+          </div>
+          <div class="axis axis--app">
+            <p class="axis__label">Toward application</p>
+            <h3>From RVE to component</h3>
+            <p>Embed the surrogates in structural FE via UMATs: thermomechanical cycling, forming, and digital twins of metal processing.</p>
+            <p class="axis__items"><a href="#r-app">Component-scale simulation</a></p>
+          </div>
+        </div>
 
-							<!-- Research focus bullets: nouns for scanability -->
-							<ul>
-							<li>Deep material networks &amp; physics-informed surrogate modeling</li>
-							<li>Crystal plasticity, multiscale homogenization &amp; texture evolution</li>
-							<li>Foundation models &amp; transfer learning for material microstructures</li>
-							<li>Multiphysics coupling (mechanical, thermal, electromechanical)</li>
-							<li>Molecular dynamics of high-entropy alloys (LAMMPS); scientific computing in Python / C++ / Fortran</li>
-							<li>Licensed Professional Engineer (Civil Engineering)</li>
-							<li>
-								<strong>Global Winner &ndash; Best Use of Science</strong> (1st out of 5,300+ teams),
-								NASA International Space Apps Challenge 2022
-								(<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/carrington-event/teams/whats-new/project"
-								target="_blank" rel="noopener">project link</a>)
-							</li>
-							</ul>
-							</article>
+        <!-- Project 1: ODMN -->
+        <article class="project" id="r-odmn">
+          <div class="project__media">
+            <figure>
+              <video class="autoplay" muted loop playsinline preload="none" poster="media/odmn-texture.webp" width="1100" height="590" aria-label="Pole figures: ODMN learns the crystallographic texture of an 809-grain polycrystal during training">
+                <source src="media/odmn-texture.mp4" type="video/mp4">
+              </video>
+              <figcaption><span class="figno">Fig. 1</span> ODMN recovers the orientation distribution of an 809-grain RVE from elastic stiffness alone. Top: DNS target. Bottom: learned leaf weights during training.</figcaption>
+            </figure>
+          </div>
+          <div class="project__body">
+            <p class="project__venue"><span class="badge">CMAME 2025</span></p>
+            <h3>Orientation-aware interaction-based deep material network (ODMN)</h3>
+            <p>Each material node carries trainable crystal orientations, decoupled from the learnable Hill–Mandel stress-equilibrium directions, so the lattice can rotate under large deformation without disturbing the homogenization structure. Trained only on linear elastic data, ODMN predicts nonlinear crystal-plasticity response <em>and</em> texture evolution under tension, cyclic loading and simple shear.</p>
+            <ul class="metrics">
+              <li><b>10<sup>2</sup>–10<sup>3</sup>×</b><span>faster than DAMASK-FFT</span></li>
+              <li><b>809</b><span>grains per RVE</span></li>
+              <li><b>Elastic only</b><span>training data; predicts plasticity</span></li>
+            </ul>
+            <p class="links"><a href="https://www.sciencedirect.com/science/article/pii/S004578252500249X" target="_blank" rel="noopener">Paper ↗</a></p>
+          </div>
+        </article>
 
-						<!-- Research -->
-							<article id="research">
-								<h2 class="major">Research</h2>
+        <!-- Project 2: PDMN -->
+        <article class="project project--flip" id="r-pdmn">
+          <div class="project__media">
+            <figure>
+              <img src="media/pdmn-abstract.webp" width="1400" height="677" alt="Graphical abstract of the Piezoelectric Deep Material Network: the challenge of multiscale electromechanical homogenization, the PDMN solution with offline training and online prediction, and its 3 to 4 orders of magnitude speedup." loading="lazy" decoding="async">
+              <figcaption><span class="figno">Fig. 2</span> PDMN: offline training on linear electroelastic stiffness, online fully coupled Newton–Raphson prediction.</figcaption>
+            </figure>
+          </div>
+          <div class="project__body">
+            <p class="project__venue"><span class="badge">CMAME 2027</span></p>
+            <h3>Piezoelectric deep material network (PDMN)</h3>
+            <p>The first DMN for electromechanical coupling. The building block carries both traction continuity and continuity of normal electric displacement at every interface, and reduces exactly to the mechanical DMN when the coupling vanishes. PDMN predicts nonlinear and viscoelastic responses of PVDF–LiNbO<sub>3</sub> composites, including stress relaxation, at a small fraction of the cost of full-field simulation.</p>
+            <ul class="metrics">
+              <li><b>&lt; 0.3%</b><span>stiffness validation error</span></li>
+              <li><b>10<sup>3</sup>–10<sup>4</sup>×</b><span>faster than DNS</span></li>
+              <li><b>Linear data only</b><span>electroelastic training set</span></li>
+            </ul>
+            <p class="links"><a href="https://arxiv.org/abs/2606.22566" target="_blank" rel="noopener">arXiv ↗</a></p>
+          </div>
+        </article>
 
-								<!-- ODMN -->
-								<section>
-									<h3><a href="https://www.sciencedirect.com/science/article/pii/S004578252500249X" target="_blank" rel="noopener">Orientation-aware interaction-based deep material network in polycrystalline materials modeling</a></h3>
-									<span class="image main">
-										<img src="images/works/ODMN.jpg"
-											alt="ODMN framework illustration"
-											loading="lazy"
-											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
-									</span>
-									<p>Multiscale simulations connect microstructural features to the macroscopic behavior of polycrystalline materials, but their high computational demands limit practicality. Deep material networks (DMNs) are efficient surrogate models, yet they fall short of capturing texture evolution. We propose the orientation-aware interaction-based deep material network (ODMN), which combines an orientation-aware mechanism that learns crystallographic textures with an interaction mechanism grounded in the Hill&ndash;Mandel principle that captures stress-equilibrium directions among representative volume element (RVE) subregions. Notably, ODMN requires only linear elastic data for training yet generalizes to complex nonlinear, anisotropic responses, accurately predicting both mechanical response and texture evolution under complex plastic deformation. <em>Published in Computer Methods in Applied Mechanics and Engineering (CMAME), 2025.</em></p>
-								</section>
+        <!-- Project 3: TACS-GNN -->
+        <article class="project" id="r-gnn">
+          <div class="project__media">
+            <figure>
+              <video class="autoplay" muted loop playsinline preload="none" poster="media/tacs-gnn.webp" width="1000" height="856" aria-label="Unseen strongly textured RVE: inferred ODMN matches DAMASK-FFT pole figures and cyclic stress-strain response without retraining">
+                <source src="media/tacs-gnn.mp4" type="video/mp4">
+              </video>
+              <figcaption><span class="figno">Fig. 3</span> An unseen RVE: inferred ODMN (no retraining) against full-field DAMASK-FFT, for both texture and cyclic stress–strain response.</figcaption>
+            </figure>
+          </div>
+          <div class="project__body">
+            <p class="project__venue"><span class="badge">CMAME 2026</span></p>
+            <h3>Texture-generalizable DMN: TACS–GNN–ODMN</h3>
+            <p>Generalization is reframed as inference. A deterministic texture-adaptive clustering and sampling (TACS) step compresses the orientation distribution into exactly 2<sup>N</sup> orientations, while a graph attention network over the grain graph predicts the interface directions. The differentiable pipeline is trained end to end on 1,440 polycrystals and then serves unseen microstructures directly.</p>
+            <ul class="metrics">
+              <li><b>&lt; 2%</b><span>mean stress error, unseen RVEs</span></li>
+              <li><b>224–281×</b><span>faster than DAMASK-FFT</span></li>
+              <li><b>1,440</b><span>training microstructures</span></li>
+            </ul>
+            <p class="links"><a href="https://doi.org/10.1016/j.cma.2026.119250" target="_blank" rel="noopener">Paper ↗</a> <a href="https://arxiv.org/abs/2512.06779" target="_blank" rel="noopener">arXiv ↗</a></p>
+          </div>
+        </article>
 
-								<!-- PDMN -->
-								<section>
-									<h3><a href="https://arxiv.org/abs/2606.22566" target="_blank" rel="noopener">Deep material network for homogenization of piezoelectric composites (PDMN)</a></h3>
-									<span class="image main">
-										<img src="images/works/PDMN.jpg"
-											alt="Piezoelectric Deep Material Network (PDMN): offline training and online prediction"
-											loading="lazy"
-											width="1500" height="1051"
-											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
-									</span>
-									<p>We extend deep material networks to multiphysics homogenization with the Piezoelectric Deep Material Network (PDMN), a surrogate for the nonlinear electro-mechanical response of piezoelectric composites. Each building block encodes the coupled electroelastic behavior of a phase, and interface field fluctuations are resolved by a Newton&ndash;Raphson solver that enforces Hill&ndash;Mandel energetic consistency. Trained only on homogenized linear electroelastic stiffness, PDMN predicts the coupled mechanical&ndash;electrical response &mdash; including viscous stress relaxation &mdash; of PVDF&ndash;LiNbO<sub>3</sub> composites at below 2% error with roughly a 10,000&times; speedup over full-field simulation. <em>Preprint (arXiv:2606.22566), 2026.</em></p>
-								</section>
+        <!-- Project 4: Foundation models -->
+        <article class="project project--flip" id="r-fm">
+          <div class="project__media">
+            <figure>
+              <video class="autoplay" muted loop playsinline preload="none" poster="media/mmae-pretrain.webp" width="756" height="304" aria-label="Masked autoencoder pretraining: microstructure patches are masked and reconstructed">
+                <source src="media/mmae-pretrain.mp4" type="video/mp4">
+              </video>
+              <figcaption><span class="figno">Fig. 4</span> Self-supervised masked-autoencoder pretraining on microstructure images: mask, encode, reconstruct.</figcaption>
+            </figure>
+          </div>
+          <div class="project__body">
+            <p class="project__venue"><span class="badge">Mater. Des. 2025</span> <span class="badge badge--soft">arXiv 2025</span></p>
+            <h3>Foundation models for microstructure</h3>
+            <p>Pretrain once, reuse everywhere. Masked autoencoders pretrained on 100,000 composite images (2D ViT) and 100,000 voxelized polycrystals (3D) learn general microstructure representations. One encoder then serves two downstream tasks: predicting effective stiffness and inferring IMN/ODMN parameters, which gives a standalone nonlinear surrogate for unseen RVEs.</p>
+            <ul class="metrics">
+              <li><b>10<sup>5</sup></b><span>pretraining microstructures</span></li>
+              <li><b>R² up to 0.959</b><span>composite stiffness (fine-tuned)</span></li>
+              <li><b>304×</b><span>faster than full-field (3D)</span></li>
+            </ul>
+            <p class="links"><a href="https://www.sciencedirect.com/science/article/pii/S0264127525008172" target="_blank" rel="noopener">Paper ↗</a> <a href="https://arxiv.org/abs/2512.06770" target="_blank" rel="noopener">arXiv ↗</a></p>
+          </div>
+        </article>
 
-								<!-- Foundation model for polycrystals -->
-								<section>
-									<h3><a href="https://arxiv.org/abs/2512.06770" target="_blank" rel="noopener">Self-supervised microstructure pretraining for unseen polycrystalline textures</a></h3>
-									<span class="image main">
-										<img src="images/works/PolyFM.jpg"
-											alt="Polycrystal foundation model: pretrained encoder maps microstructures to ODMN parameters for multiscale prediction"
-											loading="lazy"
-											width="1500" height="1261"
-											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
-									</span>
-									<p>A self-supervised foundation model for polycrystalline microstructures. A 3D Vision Transformer is pretrained by masked reconstruction of voxelized RVEs to learn transferable, physically meaningful microstructure representations. A lightweight linear head then maps these representations directly to ODMN parameters, so a fully parameterized surrogate can be inferred for previously unseen textures &mdash; enabling efficient nonlinear multiscale prediction without retraining a separate network for each microstructure. <em>Preprint (arXiv:2512.06770), under review.</em></p>
-								</section>
+        <!-- Project 5: Application -->
+        <article class="project" id="r-app">
+          <div class="project__media">
+            <figure>
+              <img src="media/gsh-lbracket.webp" width="1400" height="385" alt="Von Mises stress in an L-bracket simulated with GSH-ODMN at every integration point, for networks with N equal to 4, 6 and 8." loading="lazy" decoding="async">
+              <figcaption><span class="figno">Fig. 5</span> Texture-resolved structural simulation: an L-bracket with a GSH-ODMN at every integration point (N = 4, 6, 8).</figcaption>
+            </figure>
+          </div>
+          <div class="project__body">
+            <p class="project__venue"><span class="badge badge--soft">Ongoing</span></p>
+            <h3>From RVE to component: forming and thermomechanics</h3>
+            <p>Surrogates only matter once they run inside real structural codes. I implement DMN and crystal-plasticity models as Abaqus UMATs, compact measured textures with generalized spherical harmonics (GSH), and run texture-resolved simulations of thermomechanical cycling and deep drawing of aluminium cups, toward digital twins of metal forming and superalloy processing.</p>
+            <ul class="metrics">
+              <li><b>Abaqus UMAT</b><span>DMN + crystal plasticity</span></li>
+              <li><b>GSH</b><span>compact texture representation</span></li>
+              <li><b>DTE 2027</b><span>Yokohama, Mar 2027 (accepted abstract)</span></li>
+            </ul>
+          </div>
+        </article>
 
-								<!-- Texture-generalizable DMN -->
-								<section>
-									<h3><a href="https://arxiv.org/abs/2512.06779" target="_blank" rel="noopener">A parametric multiscale surrogate framework based on texture-generalizable deep material networks</a></h3>
-									<span class="image main">
-										<img src="images/works/TGDMN.jpg"
-											alt="Texture-generalizable DMN combining TACS sampling and a graph neural network to build ODMNs for unseen RVEs"
-											loading="lazy"
-											width="1500" height="1000"
-											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
-									</span>
-									<p>A parametric multiscale surrogate that generalizes deep material networks across polycrystalline textures. Texture-Adaptive Clustering and Sampling (TACS) samples the crystallographic-texture parameters of an ODMN, while a Graph Neural Network infers the morphology parameters tied to micromechanical equilibrium. By combining texture information with a graph representation of the microstructure, the framework constructs complete ODMNs for unseen RVEs &mdash; enabling concurrent two-scale simulation and texture prediction without retraining the ODMN itself. <em>Preprint (arXiv:2512.06779), under review.</em></p>
-								</section>
+        <h3 class="subhead">Earlier work</h3>
+        <div class="cards">
+          <article class="card">
+            <video class="autoplay" muted loop playsinline preload="none" poster="media/hea-md.webp" width="880" height="376" aria-label="Exploratory molecular dynamics tension simulation of a high-entropy alloy, with defect structures colored">
+              <source src="media/hea-md.mp4" type="video/mp4">
+            </video>
+            <div class="card__body">
+              <p class="card__meta">Mater. Chem. Phys. 2021 · co-author</p>
+              <h4>Deformation mechanisms in CoCrFeMnNi high-entropy alloys</h4>
+              <p>Molecular dynamics (LAMMPS) study showing how composition shifts twinning from easy shear to interlocking stacking faults to bulk HCP transformation, and how that controls ductility.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="media/endo-bmode.webp" width="756" height="607" alt="B-mode ultrasound images of cavitation bubbles around three endodontic files during irrigation." loading="lazy" decoding="async">
+            <div class="card__body">
+              <p class="card__meta">M.Sc. thesis · ACMT 2023</p>
+              <h4>Cavitation bubbles in root-canal irrigation</h4>
+              <p>CFD of an oscillating endodontic file, validated with ultrasound imaging, to predict where cavitation bubbles form for different files and irrigants.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="media/nasa.webp" width="1000" height="750" alt="The team at the NASA Space Apps Challenge 2022." loading="lazy" decoding="async">
+            <div class="card__body">
+              <p class="card__meta">NASA Space Apps 2022 · Global Winner</p>
+              <h4>Predicting solar storms from spacecraft data</h4>
+              <p>A three-stage sequence-model pipeline (DSCOVR → Wind magnetic field → solar-proton data → storm probability). Best Use of Science, 1st of 5,300+ teams. <a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/carrington-event/teams/whats-new/project" target="_blank" rel="noopener">Project ↗</a></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-								<!-- Foundation Model for composites -->
-								<section>
-									<h3><a href="https://www.sciencedirect.com/science/article/pii/S0264127525008172" target="_blank" rel="noopener">Foundation model for composite microstructures: Reconstruction, stiffness, and nonlinear behavior prediction</a></h3>
-									<span class="image main">
-										<img src="images/works/MMAE.jpg"
-											alt="Material Masked Autoencoder (MMAE) illustration"
-											loading="lazy"
-											style="width: 100%; height: auto; display: block; margin: 0 auto; object-fit: contain;" />
-									</span>
-									<p>We present the Material Masked Autoencoder (MMAE), a self-supervised Vision Transformer pretrained on a large corpus of short-fiber composite images via masked image reconstruction. The pretrained MMAE learns latent representations that capture essential microstructural features and are broadly transferable across tasks. We demonstrate two key applications: (i) predicting homogenized stiffness components through fine-tuning on limited data, and (ii) inferring physically interpretable parameters by coupling MMAE with an interaction-based material network (IMN), thereby enabling extrapolation of nonlinear stress&ndash;strain responses. <em>Published in Materials &amp; Design, 2025.</em></p>
-								</section>
+    <!-- ============ PUBLICATIONS ============ -->
+    <section class="section" id="publications" aria-labelledby="pubs-h">
+      <div class="wrap grid-side">
+        <header class="section__head">
+          <p class="section__num">03</p>
+          <h2 id="pubs-h">Publications</h2>
+          <p class="section__note">Full list on <a href="https://scholar.google.com/citations?user=xG39dbQAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+        </header>
+        <div>
+          <div class="tabs" role="tablist" aria-label="Publication type">
+            <button role="tab" aria-selected="true" aria-controls="pub-journal" id="tab-journal">Articles &amp; preprints <span>8</span></button>
+            <button role="tab" aria-selected="false" aria-controls="pub-conf" id="tab-conf" tabindex="-1">Conference abstracts <span>10</span></button>
+          </div>
 
-								<!-- Deformation mechanisms in CoCrFeMnNi high entropy alloys -->
-								<section>
-									<h3><a href="https://www.sciencedirect.com/science/article/abs/pii/S0254058421006957" target="_blank" rel="noopener">Deformation mechanisms in CoCrFeMnNi high-entropy alloys</a></h3>
-									<span class="image main"><img src="images/works/work1.jpg" alt="Molecular dynamics of CoCrFeMnNi high-entropy alloys" loading="lazy" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
-									<p>We used molecular dynamics simulations to investigate the relationship between mechanical properties and deformation mechanisms in CoCrFeMnNi alloys of different compositions. According to deformation-twinning activity, the mechanisms under tensile loading fall into three categories: easy-shear (ES), inter-locks (IL), and bulk hcp transformation (BH). Compositions with ES tended to rupture early due to short, fragmented twins; the IL pattern promoted movement of interlocking stacking faults along twin boundaries, prolonging deformation; and BH further increased ductility, as the hcp transformation absorbed and dissipated stacking faults. <em>Published in Materials Chemistry and Physics, 2021.</em></p>
-								</section>
+          <div role="tabpanel" id="pub-journal" aria-labelledby="tab-journal" tabindex="0">
+          <ol class="pubs" reversed>
+            <li class="pub">
+              <img class="pub__thumb" src="media/pub-pub08.webp" alt="" loading="lazy" decoding="async">
+              <div>
+                <p class="pub__title">Deep material network for homogenization of piezoelectric composites</p>
+                <p class="pub__authors"><b>T.-J. Wei</b>, Y.-M. Lu, C.-S. Chen</p>
+                <p class="pub__venue"><i>Computer Methods in Applied Mechanics and Engineering</i> 464, 119536 · 2027</p>
+                <p class="pub__links"><a href="https://arxiv.org/abs/2606.22566" target="_blank" rel="noopener">arXiv</a></p>
+              </div>
+            </li>
+            <li class="pub">
+              <img class="pub__thumb" src="media/pub-pub06.webp" alt="" loading="lazy" decoding="async">
+              <div>
+                <p class="pub__title">A parametric multiscale surrogate framework based on texture-generalizable Deep Material Networks for polycrystal modeling</p>
+                <p class="pub__authors"><b>T.-J. Wei</b>, T.-H. Su, C.-S. Chen</p>
+                <p class="pub__venue"><i>Computer Methods in Applied Mechanics and Engineering</i> 461, 119250 · 2026</p>
+                <p class="pub__links"><a href="https://doi.org/10.1016/j.cma.2026.119250" target="_blank" rel="noopener">DOI</a><a href="https://arxiv.org/abs/2512.06779" target="_blank" rel="noopener">arXiv</a></p>
+              </div>
+            </li>
+            <li class="pub">
+              <img class="pub__thumb" src="media/pub-pub05.webp" alt="" loading="lazy" decoding="async">
+              <div>
+                <p class="pub__title">Deep Material Network: overview, applications, and current directions</p>
+                <p class="pub__authors"><b>T.-J. Wei</b>, W.-N. Wan, C.-S. Chen</p>
+                <p class="pub__venue"><i>Multiscale Science and Engineering</i>, 1–19 · 2026 <span class="pill">Review</span></p>
+                <p class="pub__links"><a href="https://doi.org/10.1007/s42493-026-00146-4" target="_blank" rel="noopener">DOI</a></p>
+              </div>
+            </li>
+            <li class="pub">
+              <img class="pub__thumb" src="media/pub-pub07.webp" alt="" loading="lazy" decoding="async">
+              <div>
+                <p class="pub__title">Efficient nonlinear multiscale prediction for unseen polycrystalline textures via self-supervised microstructure pretraining</p>
+                <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
+                <p class="pub__venue"><i>arXiv preprint</i> 2512.06770 · 2025 <span class="pill">Under review</span></p>
+                <p class="pub__links"><a href="https://arxiv.org/abs/2512.06770" target="_blank" rel="noopener">arXiv</a></p>
+              </div>
+            </li>
+            <li class="pub">
+              <img class="pub__thumb" src="media/pub-pub04.webp" alt="" loading="lazy" decoding="async">
+              <div>
+                <p class="pub__title">Foundation model for composite microstructures: reconstruction, stiffness, and nonlinear behavior prediction</p>
+                <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
+                <p class="pub__venue"><i>Materials &amp; Design</i> 257, 114397 · 2025</p>
+                <p class="pub__links"><a href="https://www.sciencedirect.com/science/article/pii/S0264127525008172" target="_blank" rel="noopener">Paper</a></p>
+              </div>
+            </li>
+            <li class="pub">
+              <img class="pub__thumb" src="media/pub-pub03.webp" alt="" loading="lazy" decoding="async">
+              <div>
+                <p class="pub__title">Orientation-aware interaction-based deep material network in polycrystalline materials modeling</p>
+                <p class="pub__authors"><b>T.-J. Wei</b>, T.-H. Su, C.-S. Chen</p>
+                <p class="pub__venue"><i>Computer Methods in Applied Mechanics and Engineering</i> 441, 117977 · 2025</p>
+                <p class="pub__links"><a href="https://www.sciencedirect.com/science/article/pii/S004578252500249X" target="_blank" rel="noopener">Paper</a></p>
+              </div>
+            </li>
+            <li class="pub">
+              <img class="pub__thumb" src="media/pub-pub02b.webp" alt="" loading="lazy" decoding="async">
+              <div>
+                <p class="pub__title">Decoding material networks: exploring performance of deep material network and interaction-based material networks</p>
+                <p class="pub__authors">W.-N. Wan, <b>T.-J. Wei</b>, T.-H. Su, C.-S. Chen</p>
+                <p class="pub__venue"><i>Journal of Mechanics</i> 40, 796–807 · 2024</p>
+              </div>
+            </li>
+            <li class="pub">
+              <img class="pub__thumb" src="media/pub-pub01b.webp" alt="" loading="lazy" decoding="async">
+              <div>
+                <p class="pub__title">Mechanical properties and deformation mechanisms in CoCrFeMnNi high entropy alloys: a molecular dynamics study</p>
+                <p class="pub__authors">K.-T. Chen, <b>T.-J. Wei</b>, G.-C. Li, M.-Y. Chen, Y.-S. Chen, S.-W. Chang, H.-W. Yen, C.-S. Chen</p>
+                <p class="pub__venue"><i>Materials Chemistry and Physics</i> 271, 124912 · 2021</p>
+                <p class="pub__links"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0254058421006957" target="_blank" rel="noopener">Paper</a></p>
+              </div>
+            </li>
+          </ol>
+          </div>
 
-								<!-- Planar Defect Algorithm -->
-								<section>
-									<h3>Defect identification algorithm for FCC crystal structures</h3>
-									<span class="image main"><img src="images/works/work2.png" alt="Defect identification in FCC crystal structures" loading="lazy" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
-									<p>We developed defect identification algorithms to study CoCrFeMnNi high-entropy-alloy single-crystal deformation in molecular dynamics simulation. According to defect evolution, the deformation divides into two stages: dislocation slip in stage&nbsp;I, and dislocation slip together with twinning contributing to work hardening in stage&nbsp;II. The algorithms discern the most common defects in face-centered cubic crystals, allowing MD simulation to bridge the relationship between defect evolution and material properties.</p>
-								</section>
+          <div role="tabpanel" id="pub-conf" aria-labelledby="tab-conf" tabindex="0" hidden>
+          <ol class="pubs pubs--conf" reversed>
+            <li class="pub"><div>
+              <p class="pub__title">Toward digital twins of metal forming: efficient polycrystalline multiscale simulation with deep material networks</p>
+              <p class="pub__authors">G.-C. Li, Y.-T. Lu, <b>T.-J. Wei</b>, C.-S. Chen</p>
+              <p class="pub__venue"><i>Digital Twins in Engineering (DTE 2027)</i> · Yokohama, Japan · Mar 2027 <span class="pill">Upcoming</span></p>
+            </div></li>
+            <li class="pub"><div>
+              <p class="pub__title">Piezoelectric deep material networks: bridging microstructural physics and structural-scale electromechanical simulations</p>
+              <p class="pub__authors"><b>T.-J. Wei</b>, Y.-M. Lu, C.-S. Chen</p>
+              <p class="pub__venue"><i>Digital Twins in Engineering (DTE 2027)</i> · Yokohama, Japan · Mar 2027 <span class="pill">Upcoming</span></p>
+            </div></li>
+            <li class="pub"><div>
+              <p class="pub__title">Deep material networks: foundations, extensions, and applications in multiscale materials modeling</p>
+              <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
+              <p class="pub__venue"><i>ACMT 2026 &amp; BEM17</i> · Taipei, Taiwan · Oct 2026</p>
+            </div></li>
+            <li class="pub"><div>
+              <p class="pub__title">Deep material networks for nonlinear electromechanical homogenization of piezoelectric composites</p>
+              <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
+              <p class="pub__venue"><i>AESCAPE 2026</i> · Dallas, TX, USA · Sep 2026</p>
+            </div></li>
+            <li class="pub"><div>
+              <p class="pub__title">Deep material networks for homogenization of heterogeneous piezoelectric materials</p>
+              <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
+              <p class="pub__venue"><i>17th World Congress on Computational Mechanics (WCCM–ECCOMAS 2026)</i> · Munich, Germany · Jul 2026</p>
+            </div></li>
+            <li class="pub"><div>
+              <p class="pub__title">Generalizable deep material networks for polycrystalline and composite materials: incorporating graph neural networks and foundation models</p>
+              <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
+              <p class="pub__venue"><i>APCOM–ACCM 2025</i> · Brisbane, Australia · Dec 2025</p>
+            </div></li>
+            <li class="pub"><div>
+              <p class="pub__title">Orientation-aware interaction-based deep material network for polycrystalline materials with diverse microstructures</p>
+              <p class="pub__authors"><b>T.-J. Wei</b>, W.-N. Wan, C.-S. Chen</p>
+              <p class="pub__venue"><i>XVIII International Conference on Computational Plasticity (COMPLAS 2025)</i> · Barcelona, Spain · Sep 2025</p>
+            </div></li>
+            <li class="pub"><div>
+              <p class="pub__title">Advancing multiscale modeling in polycrystalline materials: a novel deep material network approach</p>
+              <p class="pub__authors"><b>T.-J. Wei</b>, C.-S. Chen</p>
+              <p class="pub__venue"><i>16th World Congress on Computational Mechanics (WCCM–PANACM 2024)</i> · Vancouver, Canada · Jul 2024</p>
+            </div></li>
+            <li class="pub"><div>
+              <p class="pub__title">Graph-enhanced ODMN: a unified model for advanced polycrystalline material modeling</p>
+              <p class="pub__authors"><b>T.-J. Wei</b>, T.-H. Su, C.-S. Chen</p>
+              <p class="pub__venue"><i>ACMT 2024 &amp; TWBEM 15</i> · Taiwan · Oct 2024</p>
+            </div></li>
+            <li class="pub"><div>
+              <p class="pub__title">Simulating an irrigation flow in root canal: predicting the likelihood of cavitation bubble formation</p>
+              <p class="pub__authors"><b>T.-J. Wei</b>, Y.-Y. Chen, C.-C. Lin, W.-W. Liu, A.-B. Wang, J.-S. Chen</p>
+              <p class="pub__venue"><i>ACMT 2023 Annual Meeting</i> · Taipei, Taiwan · Oct 2023</p>
+            </div></li>
+          </ol>
+          </div>
+        </div>
+      </div>
+    </section>
 
-							</article>
+    <!-- ============ NEWS ============ -->
+    <section class="section section--alt" id="news" aria-labelledby="news-h">
+      <div class="wrap grid-side">
+        <header class="section__head">
+          <p class="section__num">04</p>
+          <h2 id="news-h">News</h2>
+        </header>
+        <ul class="news">
+          <li><time datetime="2026-11">Nov 2026</time><p>Received the <strong>2026 Doctoral Dissertation Award</strong> from the Society of Theoretical and Applied Mechanics (STAM), Taiwan.</p></li>
+          <li><time datetime="2026-11">Nov 2026</time><p>Joined <strong>Special Melted Products Ltd</strong> (Sheffield, UK) as R&amp;D Technical Consultant, working on superalloy processing.</p></li>
+          <li><time datetime="2026-10">Oct 2026</time><p>Invited talk at NTU: <em>My CAE Journey</em>, on research, getting stuck, and choosing a Ph.D. path.</p></li>
+          <li><time datetime="2026-10">Oct 2026</time><p>Talk on DMN foundations and extensions at ACMT 2026 &amp; BEM17, Taipei.</p></li>
+          <li><time datetime="2026-09">Sep 2026</time><p>Doctoral Dissertation Award at the <strong>19th TOPCO Thesis Award</strong>; talk on piezoelectric DMN at AESCAPE 2026, Dallas.</p></li>
+          <li><time datetime="2026-08">Aug 2026</time><p><strong>Dean’s Award for Graduate Students</strong>, College of Engineering, NTU (top 10%).</p></li>
+          <li><time datetime="2026-07">Jul 2026</time><p>TACS–GNN–ODMN accepted in <em>CMAME</em>. Presented PDMN at WCCM–ECCOMAS 2026, Munich. Started as postdoctoral researcher at NTU.</p></li>
+          <li><time datetime="2026-06">Jun 2026</time><p>Defended my Ph.D. dissertation, <em>Deep Material Networks for Microstructure Learning in Multiscale Simulations</em>.</p></li>
+        </ul>
+      </div>
+    </section>
 
-						<!-- Publications -->
-							<article id="publications">
-								<h2 class="major">Publications</h2>
-								<p>Selected publications; author name in <strong>bold</strong>. Full list on
-								<a href="https://scholar.google.com/citations?user=xG39dbQAAAAJ&hl=zh-TW" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    <!-- ============ HONORS ============ -->
+    <section class="section" id="honors" aria-labelledby="honors-h">
+      <div class="wrap grid-side">
+        <header class="section__head">
+          <p class="section__num">05</p>
+          <h2 id="honors-h">Honors &amp; Awards</h2>
+        </header>
+        <ul class="honors">
+          <li class="honor honor--key"><span class="honor__yr">2026</span><div><p class="honor__t">Doctoral Dissertation Award</p><p class="honor__d">Society of Theoretical and Applied Mechanics of the R.O.C. (STAM), for outstanding doctoral research.</p></div></li>
+          <li class="honor honor--key"><span class="honor__yr">2026</span><div><p class="honor__t">Doctoral Dissertation Award, 19th TOPCO Thesis Award</p><p class="honor__d">Taiwan Management Institute, for <em>Deep Material Networks for Microstructure Learning in Multiscale Simulations</em>.</p></div></li>
+          <li class="honor"><span class="honor__yr">2026</span><div><p class="honor__t">Dean’s Award for Graduate Students (top 10%)</p><p class="honor__d">College of Engineering, National Taiwan University.</p></div></li>
+          <li class="honor"><span class="honor__yr">2026</span><div><p class="honor__t">Honorable Mention, Walsin Lihwa × NTU Engineering Research Competition</p><p class="honor__d">For an AI-driven virtual materials development and intelligent manufacturing decision platform.</p></div></li>
+          <li class="honor"><span class="honor__yr">2025</span><div><p class="honor__t">Saxon Student Mobility Scholarship</p><p class="honor__d">Saxon State Ministry for Science, Culture and Tourism, for a research stay at TU Dresden.</p></div></li>
+          <li class="honor"><span class="honor__yr">2024</span><div><p class="honor__t">Ministry of Education Doctoral Scholarship (AY 113)</p><p class="honor__d">National Taiwan University.</p></div></li>
+          <li class="honor"><span class="honor__yr">2023</span><div><p class="honor__t">Xin-Miao (鑫淼) Technology Doctoral Scholarship</p><p class="honor__d">Xin-Miao Education Foundation; awarded to five doctoral students university-wide each year.</p></div></li>
+          <li class="honor"><span class="honor__yr">2023</span><div><p class="honor__t">2nd Place, Taipei, NASA Space Apps Challenge</p></div></li>
+          <li class="honor honor--key"><span class="honor__yr">2022</span><div><p class="honor__t">Global Winner, Best Use of Science, NASA Space Apps Challenge</p><p class="honor__d">1st of 5,300+ teams worldwide. <a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/carrington-event/teams/whats-new/project" target="_blank" rel="noopener">Project page ↗</a></p></div></li>
+          <li class="honor"><span class="honor__yr">2021</span><div><p class="honor__t">Professional Engineer (PE), Civil Engineering</p><p class="honor__d">Licensed by the Public Construction Commission, Taiwan.</p></div></li>
+        </ul>
+      </div>
+    </section>
 
-								<h3>Journal Articles</h3>
-								<ul class="alt">
-									<li><strong>Wei, T.-J.</strong>, Wan, W.-N., &amp; Chen, C.-S. (2026). Deep Material Network: Overview, Applications, and Current Directions. <em>Multiscale Science and Engineering</em>, 8, 1&ndash;19.</li>
-									<li><strong>Wei, T.-J.</strong>, Su, T.-H., &amp; Chen, C.-S. (2025). <a href="https://www.sciencedirect.com/science/article/pii/S004578252500249X" target="_blank" rel="noopener">Orientation-aware interaction-based deep material network in polycrystalline materials modeling</a>. <em>Computer Methods in Applied Mechanics and Engineering</em>, 441, 117977.</li>
-									<li><strong>Wei, T.-J.</strong>, &amp; Chen, C.-S. (2025). <a href="https://www.sciencedirect.com/science/article/pii/S0264127525008172" target="_blank" rel="noopener">Foundation model for composite microstructures: Reconstruction, stiffness, and nonlinear behavior prediction</a>. <em>Materials &amp; Design</em>, 257, 114397.</li>
-									<li>Wan, W.-N., <strong>Wei, T.-J.</strong>, Su, T.-H., &amp; Chen, C.-S. (2024). Decoding material networks: Exploring performance of deep material network and interaction-based material networks. <em>Journal of Mechanics</em>, 40, 796&ndash;807.</li>
-									<li>Chen, K.-T., <strong>Wei, T.-J.</strong>, Li, G.-C., et al. (2021). <a href="https://www.sciencedirect.com/science/article/abs/pii/S0254058421006957" target="_blank" rel="noopener">Mechanical properties and deformation mechanisms in CoCrFeMnNi high-entropy alloys: A molecular dynamics study</a>. <em>Materials Chemistry and Physics</em>, 271, 124912.</li>
-								</ul>
+    <!-- ============ CV ============ -->
+    <section class="section section--alt" id="cv" aria-labelledby="cv-h">
+      <div class="wrap grid-side">
+        <header class="section__head">
+          <p class="section__num">06</p>
+          <h2 id="cv-h">Experience &amp; Education</h2>
+          <p class="section__note"><a href="docs/Berry_Wei_CV.pdf" target="_blank" rel="noopener">Download full CV (PDF) ↗</a></p>
+        </header>
+        <div class="cv">
+          <div>
+            <h3 class="cv__h">Experience</h3>
+            <ol class="timeline">
+              <li><span class="timeline__when">Nov 2026 – present</span><p class="timeline__what">R&amp;D Technical Consultant</p><p class="timeline__where">Special Melted Products Ltd · Sheffield, UK</p><p class="timeline__desc">Dynamic recrystallization, multiscale modeling and digital twins for superalloy processing.</p></li>
+              <li><span class="timeline__when">Jul 2026 – Oct 2026</span><p class="timeline__what">Postdoctoral Researcher</p><p class="timeline__where">National Taiwan University · Taipei</p><p class="timeline__desc">DMN and crystal-plasticity UMATs for Abaqus; deep drawing and industrial case studies linking texture evolution to component response.</p></li>
+            </ol>
+          </div>
+          <div>
+            <h3 class="cv__h">Education</h3>
+            <ol class="timeline">
+              <li><span class="timeline__when">2023 – 2026</span><p class="timeline__what">Ph.D., AI for Engineering Applications</p><p class="timeline__where">Department of Civil Engineering, National Taiwan University</p><p class="timeline__desc">Dissertation: <em>Deep Material Networks for Microstructure Learning in Multiscale Simulations</em>. Advisor: Prof. Chuin-Shan Chen.</p></li>
+              <li><span class="timeline__when">2021 – 2023</span><p class="timeline__what">M.Sc., Computer-Aided Engineering</p><p class="timeline__where">Department of Civil Engineering, National Taiwan University</p><p class="timeline__desc">Thesis: bubble generation during root-canal treatment, numerical modeling and experimental validation.</p></li>
+              <li><span class="timeline__when">2013 – 2017</span><p class="timeline__what">B.Sc., Civil Engineering</p><p class="timeline__where">National Chung Hsing University · Taichung</p></li>
+            </ol>
+          </div>
+          <div class="toolbox">
+            <h3 class="cv__h">Toolbox</h3>
+            <dl>
+              <div><dt>Mechanics</dt><dd>Finite element analysis · crystal plasticity · computational homogenization · molecular dynamics · CFD</dd></div>
+              <div><dt>Software</dt><dd>Abaqus (UMAT/UEL) · DAMASK · DREAM.3D · LAMMPS · OVITO · ANSYS</dd></div>
+              <div><dt>Machine learning</dt><dd>PyTorch · PyTorch Geometric · graph neural networks · vision transformers · self-supervised learning</dd></div>
+              <div><dt>Computing</dt><dd>Python · C++ · Fortran · MPI / HPC</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
 
-								<h3>Preprints &amp; Under Review</h3>
-								<ul class="alt">
-									<li><strong>Wei, T.-J.</strong>, Lu, Y.-M., &amp; Chen, C.-S. (2026). <a href="https://arxiv.org/abs/2606.22566" target="_blank" rel="noopener">Deep material network for homogenization of piezoelectric composites</a>. <em>arXiv:2606.22566</em>.</li>
-									<li><strong>Wei, T.-J.</strong>, &amp; Chen, C.-S. (2025). <a href="https://arxiv.org/abs/2512.06770" target="_blank" rel="noopener">Efficient nonlinear multiscale prediction for unseen polycrystalline textures via self-supervised microstructure pretraining</a>. <em>arXiv:2512.06770</em> (under review).</li>
-									<li><strong>Wei, T.-J.</strong>, Su, T.-H., &amp; Chen, C.-S. (2025). <a href="https://arxiv.org/abs/2512.06779" target="_blank" rel="noopener">A parametric multiscale surrogate framework based on texture-generalizable deep material networks for polycrystal modeling</a>. <em>arXiv:2512.06779</em> (under review).</li>
-								</ul>
+    <!-- ============ BEYOND ============ -->
+    <section class="section" id="beyond" aria-labelledby="beyond-h">
+      <div class="wrap grid-side">
+        <header class="section__head">
+          <p class="section__num">07</p>
+          <h2 id="beyond-h">Beyond the lab</h2>
+        </header>
+        <div class="beyond">
+          <figure><img src="media/diving.webp" width="700" height="1050" alt="Freediving underwater." loading="lazy" decoding="async"><figcaption>Freediving.</figcaption></figure>
+          <figure><img src="media/travel.webp" width="900" height="738" alt="A canal lined with cherry trees, from my travels." loading="lazy" decoding="async"><figcaption>Photography and travel.</figcaption></figure>        </div>
+      </div>
+    </section>
 
-								<h3>Selected Conference Presentations</h3>
-								<ul class="alt">
-									<li><strong>Wei, T.-J.</strong>, &amp; Chen, C.-S. (2026). Deep Material Networks for Homogenization of Heterogeneous Piezoelectric Materials. <em>17th World Congress on Computational Mechanics (WCCM) &amp; ECCOMAS</em>, Munich, Germany.</li>
-									<li><strong>Wei, T.-J.</strong>, &amp; Chen, C.-S. (2025). Generalizable Deep Material Networks for Polycrystalline and Composite Materials. <em>9th Asian Pacific Congress on Computational Mechanics (APCOM) &amp; ACCM</em>, Brisbane, Australia.</li>
-									<li><strong>Wei, T.-J.</strong>, Wan, W.-N., &amp; Chen, C.-S. (2025). Orientation-Aware Interaction-Based Deep Material Network for Polycrystalline Materials with Diverse Microstructures. <em>XVIII International Conference on Computational Plasticity (COMPLAS)</em>, Barcelona, Spain.</li>
-									<li><strong>Wei, T.-J.</strong>, &amp; Chen, C.-S. (2024). Advancing Multiscale Modeling in Polycrystalline Materials: A Novel Deep Material Network Approach. <em>16th World Congress on Computational Mechanics (WCCM) &amp; PANACM</em>, Vancouver, Canada.</li>
-								</ul>
-							</article>
+  </main>
 
-						<!-- Awards -->
-							<article id="awards">
-								<h2 class="major">Awards</h2>
-								<ul class="alt">
-									<li><strong>Dean's Award for Graduate Students</strong> &mdash; College of Engineering, National Taiwan University (2026)</li>
-									<li><strong>Honorable Mention</strong> &mdash; Walsin Lihwa &times; NTU Engineering Research Competition, for the AI-Driven Virtual Materials Development and Intelligent Manufacturing Decision Platform (2026)</li>
-									<li><strong>Saxon Student Mobility Scholarship</strong> &mdash; Saxon Ministry for Science, Culture and Tourism, for a research stay at TU Dresden (2025)</li>
-									<li><strong>Ministry of Education Doctoral Scholarship</strong> (AY 113) &mdash; National Taiwan University (2024)</li>
-									<li><strong>Xin-Miao Technology Doctoral Scholarship</strong> &mdash; awarded to 5 doctoral students university-wide per year (2023)</li>
-									<li><strong>2nd Place, Taipei City</strong> &mdash; NASA Space Apps Challenge (2023)</li>
-									<li><strong>Global Winner, Best Use of Science</strong> &mdash; NASA Space Apps Challenge, 1st of 5,300+ teams worldwide (<a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/carrington-event/teams/whats-new/project" target="_blank" rel="noopener">project page</a>, 2022)</li>
-									<li><strong>Professional Engineer (PE), Civil Engineering</strong> &mdash; Public Construction Commission, Credential ID 017987 (2021)</li>
-								</ul>
-							</article>
+  <!-- ============ CONTACT ============ -->
+  <footer class="footer" id="contact">
+    <div class="wrap footer__grid">
+      <div>
+        <p class="section__num">08</p>
+        <h2 class="footer__h">Get in touch</h2>
+        <p class="footer__p">Open to collaboration on multiscale modeling, scientific machine learning and digital twins for materials processing.</p>
+        <a class="footer__mail" href="mailto:berrya90239@gmail.com">berrya90239@gmail.com</a>
+      </div>
+      <ul class="footer__links">
+        <li><a href="https://scholar.google.com/citations?user=xG39dbQAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><a href="https://www.linkedin.com/in/ting-ju-wei-6985ba187/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/BerryWei" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="docs/Berry_Wei_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+      </ul>
+    </div>
+    <div class="wrap footer__base">
+      <p>© <span id="yr">2026</span> Ting-Ju Wei · Sheffield, UK</p>
+      <p>Last updated November 2026</p>
+    </div>
+  </footer>
 
-						<!-- Activity -->
-							<article id="activity">
-								<h2 class="major">Activity</h2>
-
-								<section>
-									<h3>2022 <a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/carrington-event/teams/whats-new/project" target="_blank" rel="noopener">NASA Space Apps 2022 Challenge</a></h3>
-									<span class="image main"><img src="images/activity/NASA_AIT.JPG" alt="NASA Space Apps Challenge team" loading="lazy" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
-									<p>In this project, we propose a machine learning pipeline to predict the probability of a solar-storm event. We divide the challenge into three subproblems: (1) map DSCOVR's magnetic data to Wind's magnetic data, (2) transform magnetic data to solar-proton data, and (3) predict the storm-occurrence probability based on the proton data.</p>
-								</section>
-
-								<section>
-									<h3>Freediving</h3>
-									<span class="image main"><img src="images/activity/diving.jpg" alt="Freediving" loading="lazy" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
-									<p>I am a freediving enthusiast. I find the underwater world fascinating and enjoy exploring the beauty of marine life. Freediving offers a sense of tranquility and connection with nature that is unmatched.</p>
-								</section>
-
-								<section>
-									<h3>Photography &amp; Travel</h3>
-									<span class="image main"><img src="images/activity/travel.JPG" alt="Photography and travel" loading="lazy" style="max-width: 100%; height: auto; width: 80%; margin: 0 auto; display: block;" /></span>
-									<p>I enjoy capturing moments during my travels and exploring new places through photography. Photography is a way to document and share my adventures, and it helps me see the world from different perspectives. Traveling lets me experience diverse cultures, meet new people, and gain a deeper understanding of the world &mdash; whether it's the bustling streets of a city or the serene landscapes of nature.</p>
-								</section>
-
-							</article>
-
-						<!-- Contact -->
-						<article id="contact">
-							<h2 class="major">Contact</h2>
-							<form method="POST" action="https://formspree.io/f/xpwleqvz">
-								<div class="fields">
-									<div class="field half">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" required />
-									</div>
-									<div class="field half">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" required />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="4" required></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" class="primary" /></li>
-									<li><input type="reset" value="Reset" /></li>
-								</ul>
-							</form>
-
-							<ul class="icons">
-								<li><a href="https://twitter.com/berrya90239" class="icon brands fa-twitter" target="_blank" rel="noopener"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.facebook.com/berry.wei" class="icon brands fa-facebook-f" target="_blank" rel="noopener"><span class="label">Facebook</span></a></li>
-								<li><a href="https://www.instagram.com/weiberry/" class="icon brands fa-instagram" target="_blank" rel="noopener"><span class="label">Instagram</span></a></li>
-								<li><a href="https://github.com/BerryWei" class="icon brands fa-github" target="_blank" rel="noopener"><span class="label">GitHub</span></a></li>
-							</ul>
-						</article>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Ting-Ju Wei. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-					</footer>
-
-			</div>
-
-		<!-- BG -->
-			<div id="bg"></div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+  <script src="js/main.js" defer></script>
+</body>
 </html>
