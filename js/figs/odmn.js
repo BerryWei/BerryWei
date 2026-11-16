@@ -187,7 +187,7 @@
         }
       }
       ctx.globalAlpha = 1;
-      api.label('\u27e810\u27e9 poles', P.cx, P.cy + P.R + fs * 1.6, { align: 'center', size: fs });
+      api.label('{100} pole figure', P.cx, P.cy + P.R + fs * 1.6, { align: 'center', size: fs });
     }
 
     return { draw: draw, theme: theme };
